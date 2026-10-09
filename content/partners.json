@@ -1,0 +1,17 @@
+{
+  "title": "Consortium",
+  "standfirst": "Eleven beneficiaries across seven countries, coordinated by RPTU in Kaiserslautern.",
+  "items": [
+    { "acronym": "RPTU", "name": "RHEINLAND-PFALZISCHE TECHNISCHE UNIVERSITAT", "country": "Germany", "city": "Kaiserslautern", "role": "Coordinator", "logo": "/images/partners/01_RPTU.svg", "url": "" },
+    { "acronym": "VIL", "name": "VILNIAUS GEDIMINO TECHNIKOS UNIVERSITETAS", "country": "Lithuania", "city": "Vilnius", "role": "Partner", "logo": "/images/partners/02_VILNIUS_TECH.png", "url": "" },
+    { "acronym": "HRW", "name": "HOCHSCHULE RUHR WEST", "country": "Germany", "city": "Mülheim an der Ruhr", "role": "Partner", "logo": "/images/partners/03_HRW.png", "url": "" },
+    { "acronym": "JYU", "name": "JYVÄSKYLÄN YLIOPISTO", "country": "Finland", "city": "Jyväskylä", "role": "Partner", "logo": "/images/partners/04_JYU.png", "url": "" },
+    { "acronym": "EA", "name": "ELLINOGERMANIKI AGOGI SCHOLI PANAGEA SAVVA AE", "country": "Greece", "city": "Pallini", "role": "Partner", "logo": "/images/partners/05_EA.png", "url": "" },
+    { "acronym": "UGent", "name": "UNIVERSITEIT GENT", "country": "Belgium", "city": "Gent", "role": "Partner", "logo": "/images/partners/06_UGent.png", "url": "" },
+    { "acronym": "QUANTIA", "name": "QUANTIA CONSULTING SRL", "country": "Italy", "city": "Mariano Comense", "role": "Partner", "logo": "/images/partners/07_QUANTIA.png", "url": "" },
+    { "acronym": "ZEUS", "name": "ZEUS GMBH, ZENTRUM FUR ANGEWANDTE PSYCHOLOGIE, UMWELT- UND SOZIALFORSCHUNG", "country": "Germany", "city": "Hagen", "role": "Partner", "logo": "/images/partners/08_ZEUS.png", "url": "" },
+    { "acronym": "UNIZG FOI", "name": "SVEUCILISTE U ZAGREBU, FAKULTET ORGANIZACIJE I INFORMATIKE", "country": "Croatia", "city": "Varaždin", "role": "Partner", "logo": "/images/partners/09_UNIZG_FOI.png", "url": "" },
+    { "acronym": "VESK", "name": "VERSLO IR SVETINGUMO PROFESINES KARJEROS CENTRAS", "country": "Lithuania", "city": "Vilnius", "role": "Partner", "logo": "/images/partners/10_VESK.png", "url": "" },
+    { "acronym": "BBZ", "name": "BERUFSBILDUNGSZENTRUM DER KREISHANDWERKERSCHAFT MARKISCHER KREIS - BBZ EV", "country": "Germany", "city": "Iserlohn", "role": "Partner", "logo": "/images/partners/11_BBZ.png", "url": "" }
+  ]
+}

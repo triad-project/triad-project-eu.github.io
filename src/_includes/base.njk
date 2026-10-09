@@ -1,0 +1,63 @@
+<!doctype html>
+{%- set site = db.site %}
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{% if pageTitle %}{{ pageTitle }} | TRIAD{% else %}TRIAD: {{ db.home.headline }}{% endif %}</title>
+<meta name="description" content="{{ description or site.description }}" />
+<meta property="og:title" content="{{ pageTitle or site.name }}" />
+<meta property="og:description" content="{{ description or site.description }}" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+{%- if ogImage %}
+<meta property="og:image" content="{{ site.url }}{{ ogImage }}" />
+{%- endif %}
+<link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="preload" href="/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="band" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/" aria-label="TRIAD, home">{% include "logo.svg" %}</a>
+    <nav class="nav" aria-label="Main">
+      {%- for n in nav %}
+      <a href="{{ n.url }}"{% if key == n.key %} aria-current="page"{% endif %}>{{ n.label }}</a>
+      {%- endfor %}
+      <a class="nav-cta" href="/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+{{ content | safe }}
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="funding">
+      <img src="/images/eu-emblem-horizontal-pos-tight.png" alt="Funded by the European Union" width="262" height="56" />
+      <p>Funded by the European Union under Grant Agreement No 101289995. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the European Research Executive Agency (REA). Neither the European Union nor the granting authority can be held responsible for them.</p>
+    </div>
+    <div class="footer-row">
+      <nav class="footer-nav" aria-label="Footer">
+        {%- for n in nav %}
+        <a href="{{ n.url }}">{{ n.label }}</a>
+        {%- endfor %}
+      </nav>
+      <div class="footer-contact">
+        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+        {%- for s in site.social %}{% if s.url %}
+        <a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.name }}</a>
+        {%- endif %}{% endfor %}
+      </div>
+    </div>
+    <p class="footer-base">triad-project.eu · Grant Agreement {{ site.grant }}</p>
+  </div>
+</footer>
+</body>
+</html>

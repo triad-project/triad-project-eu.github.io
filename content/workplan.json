@@ -1,0 +1,16 @@
+{
+  "items": [
+    { "id": "WP1", "title": "Pedagogical Models, Competences, and Tools", "lead": "HRW", "start": 1, "end": 12 },
+    { "id": "WP2", "title": "Design & Co-creation of Pedagogical Patterns and Scenarios", "lead": "VIL", "start": 5, "end": 15 },
+    { "id": "WP3", "title": "Neuroscientific Evidence on AI-Enhanced Learning", "lead": "UGent", "start": 1, "end": 30 },
+    { "id": "WP4", "title": "Pre-test Piloting of AI-Enriched Classroom Scenarios", "lead": "EA", "start": 7, "end": 17 },
+    { "id": "WP5", "title": "EU-wide Piloting of AI-Enriched Classroom Scenarios", "lead": "JYU", "start": 12, "end": 24 },
+    { "id": "WP6", "title": "Analysis and Evaluation of Piloting", "lead": "ZEUS", "start": 22, "end": 29 },
+    { "id": "WP7", "title": "Data Enrichment, Integration, and Exploratory Dashboard", "lead": "QUANTIA", "start": 16, "end": 30 },
+    { "id": "WP8", "title": "Adoption Materials for Schools and Policy Recommendations", "lead": "UNIZG FOI", "start": 20, "end": 36 },
+    { "id": "WP9", "title": "Communication, Dissemination, and Stakeholder Engagement I (Awareness & Networks)", "lead": "VIL", "start": 1, "end": 18 },
+    { "id": "WP10", "title": "Communication, Dissemination, and Stakeholder Engagement II (Adoption & Uptake)", "lead": "VIL", "start": 19, "end": 36 },
+    { "id": "WP11", "title": "Project Management I (Governance, Ethics, Data Setup)", "lead": "RPTU", "start": 1, "end": 18 },
+    { "id": "WP12", "title": "Project Management II (Coordination, Ethics Monitoring, Data Lifecycle Completion)", "lead": "RPTU", "start": 19, "end": 36 }
+  ]
+}

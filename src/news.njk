@@ -1,0 +1,21 @@
+---
+layout: base.njk
+permalink: /news/
+key: news
+pageTitle: News
+---
+{%- import "macros.njk" as m -%}
+<section class="page-head wrap">
+  {{ m.heading("News", "From the project", "Project news, events and results from the eleven TRIAD partners.", 1) }}
+</section>
+<section class="wrap">
+  {%- if db.news.length %}
+  <div class="grid grid-3">
+    {%- for item in db.news %}
+    {{ m.newsCard(item, types) }}
+    {%- endfor %}
+  </div>
+  {%- else %}
+  <p class="prose-p">The first news items will appear here soon.</p>
+  {%- endif %}
+</section>

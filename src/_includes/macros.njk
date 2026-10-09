@@ -1,0 +1,19 @@
+{% macro heading(title, eyebrow, standfirst, level) %}
+<header class="section-head">
+  <div class="band band-short" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+  {% if eyebrow %}<p class="eyebrow">{{ eyebrow }}</p>{% endif %}
+  {% if level == 1 %}<h1>{{ title }}</h1>{% else %}<h2>{{ title }}</h2>{% endif %}
+  {% if standfirst %}<p class="standfirst">{{ standfirst }}</p>{% endif %}
+</header>
+{% endmacro %}
+
+{% macro newsCard(item, types) %}
+<article class="card news-card">
+  {% if item.image %}<a class="news-card-img" href="/news/{{ item.slug }}/" tabindex="-1" aria-hidden="true"><img src="{{ item.image }}" alt="" loading="lazy" /></a>{% else %}<div class="card-accent" aria-hidden="true"></div>{% endif %}
+  <div class="news-card-body">
+    <p class="meta">{{ item.date | niceDate }}{% if types[item.type] %} · {{ types[item.type] }}{% endif %}{% if item.draft %} · <span class="draft">Draft, not published</span>{% endif %}</p>
+    <h3><a href="/news/{{ item.slug }}/">{{ item.title }}</a></h3>
+    {% if item.summary %}<p>{{ item.summary }}</p>{% endif %}
+  </div>
+</article>
+{% endmacro %}

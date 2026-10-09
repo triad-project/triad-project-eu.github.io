@@ -1,0 +1,158 @@
+# Pages CMS (https://pagescms.org) - the editor used to add news and update the texts on the site.
+media:
+  input: assets/uploads
+  output: /assets/uploads
+
+content:
+  - name: news
+    label: News
+    type: collection
+    path: content/news
+    format: json
+    filename: "{year}-{month}-{day}-{primary}.json"
+    view:
+      fields: [title, date, type, partner, draft]
+      primary: title
+      sort: [date]
+      default: { sort: date, order: desc }
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: date, label: Date, type: date, required: true }
+      - name: type
+        label: Type
+        type: select
+        required: true
+        default: news
+        options:
+          values:
+            - { value: news, label: News }
+            - { value: event, label: Event }
+            - { value: result, label: Result }
+            - { value: press, label: Press release }
+      - name: partner
+        label: Partner the news comes from (optional)
+        type: select
+        options:
+          values: [RPTU, VIL, HRW, JYU, EA, UGent, QUANTIA, ZEUS, UNIZG FOI, VESK, BBZ]
+      - name: draft
+        label: Draft. Untick to publish on the site
+        type: boolean
+        default: true
+      - { name: summary, label: Summary (one or two sentences, shown in the news list), type: text, required: true }
+      - { name: body, label: Text, type: rich-text, options: { format: html } }
+      - { name: image, label: Picture (no recognisable pupils without a signed consent form), type: image }
+      - { name: image_alt, label: Picture description for screen readers, type: string }
+      - { name: image_credit, label: Picture credit (photographer or organisation), type: string }
+      - { name: link, label: Link to read more (optional), type: string }
+
+  - name: outputs
+    label: Outputs
+    type: file
+    path: content/outputs.json
+    format: json
+    fields:
+      - { name: title, label: Page title, type: string }
+      - { name: standfirst, label: Introduction, type: text }
+      - { name: note, label: Note under the table, type: string }
+      - name: items
+        label: Public deliverables (add the link once a deliverable is published)
+        type: object
+        list: true
+        fields:
+          - { name: id, label: Number, type: string, required: true }
+          - { name: title, label: Name, type: string, required: true }
+          - { name: wp, label: Work package, type: string }
+          - { name: lead, label: Lead partner, type: string }
+          - { name: month, label: Planned project month, type: number }
+          - { name: url, label: Link to the published file (Zenodo or upload). Leave empty until it is public, type: string }
+      - { name: other_title, label: Heading for publications and materials, type: string }
+      - name: other
+        label: Publications and materials (papers, policy briefs, toolkits, videos)
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string, required: true }
+          - { name: url, label: Link, type: string, required: true }
+          - { name: kind, label: Kind (Paper / Policy brief / Toolkit / Video / Dataset), type: string }
+          - { name: note, label: Authors, year or a short note, type: string }
+
+  - name: partners
+    label: Consortium
+    type: file
+    path: content/partners.json
+    format: json
+    fields:
+      - { name: title, label: Page title, type: string }
+      - { name: standfirst, label: Introduction, type: text }
+      - name: items
+        label: Partners
+        type: object
+        list: true
+        fields:
+          - { name: acronym, label: Short name, type: string, required: true }
+          - { name: name, label: Legal name (as in the Grant Agreement), type: string, required: true }
+          - { name: role, label: Role, type: select, options: { values: [Coordinator, Partner] } }
+          - { name: city, label: City, type: string }
+          - { name: country, label: Country, type: string }
+          - { name: logo, label: Logo, type: string }
+          - { name: url, label: Website, type: string }
+
+  - name: home
+    label: Home page texts
+    type: file
+    path: content/home.json
+    format: json
+    fields:
+      - { name: eyebrow, label: Line above the headline, type: string }
+      - { name: headline, label: Headline, type: string }
+      - { name: standfirst, label: Introduction, type: text }
+      - name: figures
+        label: Figures
+        type: object
+        list: true
+        fields:
+          - { name: value, label: Number, type: string }
+          - { name: label, label: Label, type: string }
+      - { name: newsletter_title, label: Newsletter heading, type: string }
+      - { name: newsletter_text, label: Newsletter text, type: text }
+      - { name: newsletter_consent, label: Newsletter consent wording, type: text }
+      - { name: contact_text, label: Contact line, type: string }
+
+  - name: about
+    label: About page texts
+    type: file
+    path: content/about.json
+    format: json
+    fields:
+      - { name: title, label: Page title, type: string }
+      - { name: standfirst, label: Introduction, type: text }
+      - { name: context, label: Main text (blank line between paragraphs), type: text }
+      - { name: challenges_title, label: Challenges heading, type: string }
+      - name: challenges
+        label: Challenges
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: text, label: Text, type: text }
+      - { name: approach_title, label: Approach heading, type: string }
+      - { name: approach, label: Approach text, type: text }
+      - { name: results_title, label: Results heading, type: string }
+      - { name: results, label: Results text, type: text }
+      - { name: workplan_title, label: Work plan heading, type: string }
+      - { name: workplan_note, label: Note under the work plan, type: string }
+
+  - name: site
+    label: Contact and social media links
+    type: file
+    path: content/site.json
+    format: json
+    fields:
+      - { name: email, label: Contact email, type: string }
+      - name: social
+        label: Social media (a channel shows in the footer once its link is filled in)
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Channel, type: string }
+          - { name: url, label: Link, type: string }

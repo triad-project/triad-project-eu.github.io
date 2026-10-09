@@ -1,0 +1,106 @@
+---
+layout: base.njk
+permalink: /
+key: home
+---
+{%- import "macros.njk" as m -%}
+{%- set h = db.home -%}
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">{{ h.eyebrow }}</p>
+      <h1>{{ h.headline }}</h1>
+      <p class="lead">{{ h.standfirst }}</p>
+      <p class="actions">
+        <a class="btn" href="/about/">About the project →</a>
+        <a class="btn btn-ghost" href="/news/">News</a>
+      </p>
+    </div>
+    <div class="card figures">
+      <div class="band band-card" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+      <div class="figures-body">
+        <p class="label">The project in numbers</p>
+        <dl>
+          {%- for f in h.figures %}
+          <div><dd>{{ f.value }}</dd><dt>{{ f.label }}</dt></div>
+          {%- endfor %}
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+{%- if db.news.length %}
+<section class="section wrap">
+  {{ m.heading("Latest news", "News") }}
+  <div class="grid grid-3">
+    {%- for item in db.news | take(3) %}
+    {{ m.newsCard(item, types) }}
+    {%- endfor %}
+  </div>
+  {% if db.news.length > 3 %}<p class="more"><a href="/news/">All news →</a></p>{% endif %}
+</section>
+{%- endif %}
+
+<section class="section wrap">
+  {{ m.heading(db.about.challenges_title, "The project") }}
+  <div class="grid grid-4">
+    {%- for c in db.about.challenges %}
+    <div class="card accent-{{ loop.index }}">
+      <div class="card-accent" aria-hidden="true"></div>
+      <div class="card-body"><h3>{{ c.title }}</h3><p>{{ c.text }}</p></div>
+    </div>
+    {%- endfor %}
+  </div>
+  <p class="more"><a href="/about/">How the project works →</a></p>
+</section>
+
+<section class="section section-grey" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      {{ m.heading(h.newsletter_title, "Newsletter") }}
+      <p class="prose-p">{{ h.newsletter_text }}</p>
+      <p class="prose-p">{{ h.contact_text }} <a href="mailto:{{ db.site.email }}">{{ db.site.email }}</a></p>
+    </div>
+    <form class="card signup" id="signup" action="https://api.web3forms.com/submit" method="post" data-email="{{ db.site.email }}">
+      <input type="hidden" name="access_key" value="{{ db.site.web3forms_key }}" />
+      <input type="hidden" name="subject" value="TRIAD newsletter sign-up" />
+      <input type="hidden" name="from_name" value="TRIAD website" />
+      <input type="checkbox" name="botcheck" tabindex="-1" aria-hidden="true" class="hp" />
+      <label for="signup-email" class="label">Email address</label>
+      <input id="signup-email" type="email" name="email" placeholder="you@school.eu" autocomplete="email" required />
+      <label class="consent"><input type="checkbox" name="consent" value="yes" required /><span>{{ h.newsletter_consent }}</span></label>
+      <button class="btn" type="submit">Sign up for the newsletter →</button>
+      <p class="signup-msg" role="status" hidden></p>
+    </form>
+  </div>
+</section>
+
+<section class="section wrap">
+  {{ m.heading("Who is in TRIAD", "Consortium", db.partners.standfirst) }}
+  <ul class="logo-strip">
+    {%- for p in db.partners.items %}
+    <li><img src="{{ p.logo }}" alt="{{ p.name }}" loading="lazy" /></li>
+    {%- endfor %}
+  </ul>
+  <p class="more"><a href="/consortium/">Meet the consortium →</a></p>
+</section>
+
+<script>
+  // Newsletter sign-up: sent in the background so the visitor stays on the page.
+  (function () {
+    var form = document.getElementById("signup");
+    if (!form) return;
+    var msg = form.querySelector(".signup-msg");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var btn = form.querySelector("button");
+      btn.disabled = true;
+      fetch(form.action, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } })
+        .then(function (r) { if (!r.ok) throw new Error(); return r.json(); })
+        .then(function () { form.reset(); msg.textContent = "Thank you. You are on the list."; })
+        .catch(function () { msg.innerHTML = 'That did not go through. Please write to <a href="mailto:' + form.dataset.email + '">' + form.dataset.email + "</a> instead."; })
+        .then(function () { msg.hidden = false; btn.disabled = false; });
+    });
+  })();
+</script>

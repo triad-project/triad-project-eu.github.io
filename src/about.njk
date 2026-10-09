@@ -1,0 +1,81 @@
+---
+layout: base.njk
+permalink: /about/
+key: about
+pageTitle: About the project
+---
+{%- import "macros.njk" as m -%}
+{%- set a = db.about -%}
+{%- set s = db.site -%}
+<section class="page-head wrap">
+  {{ m.heading(a.title, "About", a.standfirst, 1) }}
+</section>
+
+<section class="wrap two-col">
+  <div class="prose">
+    {{ a.context | paras | safe }}
+  </div>
+  <aside class="card record">
+    <div class="band band-card" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <div class="record-body">
+      <p class="label">Project record</p>
+      <dl>
+        <div><dt>Full title</dt><dd>{{ s.full_title }}</dd></div>
+        <div><dt>Grant Agreement</dt><dd>{{ s.grant }}</dd></div>
+        <div><dt>Call</dt><dd>{{ s.call }}</dd></div>
+        <div><dt>Topic</dt><dd>{{ s.topic }}</dd></div>
+        <div><dt>Type of action</dt><dd>{{ s.action_type }}</dd></div>
+        <div><dt>Duration</dt><dd>{{ s.months }} months, {{ s.start | niceDate }} to {{ s.end | niceDate }}</dd></div>
+        <div><dt>Coordinator</dt><dd>{{ s.coordinator }}</dd></div>
+        <div><dt>Granting authority</dt><dd>{{ s.funder }}</dd></div>
+      </dl>
+    </div>
+  </aside>
+</section>
+
+<section class="section wrap">
+  {{ m.heading(a.challenges_title, "Why") }}
+  <div class="grid grid-4">
+    {%- for c in a.challenges %}
+    <div class="card accent-{{ loop.index }}">
+      <div class="card-accent" aria-hidden="true"></div>
+      <div class="card-body"><p class="num">{{ loop.index }}</p><h3>{{ c.title }}</h3><p>{{ c.text }}</p></div>
+    </div>
+    {%- endfor %}
+  </div>
+</section>
+
+<section class="section wrap grid grid-2">
+  <div>
+    {{ m.heading(a.approach_title, "How") }}
+    <div class="prose">{{ a.approach | paras | safe }}</div>
+  </div>
+  <div>
+    {{ m.heading(a.results_title, "What") }}
+    <div class="prose">{{ a.results | paras | safe }}</div>
+  </div>
+</section>
+
+<section class="section wrap">
+  {{ m.heading(a.workplan_title, "Work plan") }}
+  <div class="timeline">
+    <div class="tl-row tl-head" aria-hidden="true">
+      <span></span>
+      <div class="tl-ticks">
+        {%- for t in [1, 6, 12, 18, 24, 30, 36] %}
+        <span style="left: {{ (t if t > 1 else 0) | pct }}%"{% if loop.first %} class="first"{% elif loop.last %} class="last"{% endif %}>M{{ t }}</span>
+        {%- endfor %}
+      </div>
+    </div>
+    {%- for wp in db.workplan %}
+    <div class="tl-row">
+      <div class="tl-label">
+        <strong>{{ wp.id }}</strong> {{ wp.title }}
+        <span class="meta">Lead: {{ wp.lead }} · M{{ wp.start }}-M{{ wp.end }}</span>
+      </div>
+      <div class="tl-track" aria-hidden="true"><span class="tl-bar c{{ loop.index0 % 4 }}" style="left: {{ (wp.start - 1) | pct }}%; width: {{ (wp.end - wp.start + 1) | pct }}%"></span></div>
+    </div>
+    {%- endfor %}
+  </div>
+  <p class="note">{{ a.workplan_note }}</p>
+</section>

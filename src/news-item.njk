@@ -1,0 +1,27 @@
+---
+layout: base.njk
+pagination:
+  data: db.news
+  size: 1
+  alias: item
+permalink: "/news/{{ item.slug }}/"
+key: news
+eleventyComputed:
+  pageTitle: "{{ item.title }}"
+  description: "{{ item.summary }}"
+  ogImage: "{{ item.image }}"
+---
+<article class="post wrap">
+  <p><a class="back" href="/news/">← News</a></p>
+  <p class="meta">{{ item.date | niceDate }}{% if types[item.type] %} · {{ types[item.type] }}{% endif %}{% if item.partner %} · {{ item.partner }}{% endif %}{% if item.draft %} · <span class="draft">Draft, not published</span>{% endif %}</p>
+  <h1>{{ item.title }}</h1>
+  {% if item.summary %}<p class="lead">{{ item.summary }}</p>{% endif %}
+  {%- if item.image %}
+  <figure>
+    <img src="{{ item.image }}" alt="{{ item.image_alt }}" />
+    {% if item.image_credit %}<figcaption>Picture: {{ item.image_credit }}</figcaption>{% endif %}
+  </figure>
+  {%- endif %}
+  <div class="prose">{{ item.body | safe }}</div>
+  {% if item.link %}<p class="actions"><a class="btn btn-ghost" href="{{ item.link }}" target="_blank" rel="noopener">Read more →</a></p>{% endif %}
+</article>

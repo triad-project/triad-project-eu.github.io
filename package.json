@@ -1,0 +1,13 @@
+{
+  "name": "triad-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "cd \"$(dirname \"$npm_package_json\")\" && eleventy --serve --port 8092",
+    "build": "eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@fontsource-variable/montserrat": "^5.0.0"
+  }
+}
