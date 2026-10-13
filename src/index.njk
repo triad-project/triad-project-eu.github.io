@@ -61,7 +61,7 @@ key: home
       btn.disabled = true;
       fetch(form.action, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email: form.email.value.trim() }) })
         .then(function (r) { if (!r.ok) throw new Error(); })
-        .then(function () { form.reset(); msg.textContent = "Thank you. You are on the list."; })
+        .then(function () { form.reset(); msg.textContent = "Thank you. We have sent you an email: please click the link in it to confirm."; })
         .catch(function () { msg.innerHTML = 'That did not go through. Please write to <a href="mailto:' + form.dataset.email + '">' + form.dataset.email + "</a> instead."; })
         .then(function () { msg.hidden = false; btn.disabled = false; });
     });
