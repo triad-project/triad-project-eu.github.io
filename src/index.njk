@@ -5,156 +5,54 @@ key: home
 ---
 {%- import "macros.njk" as m -%}
 {%- set h = db.home -%}
-<section class="hero wrap">
-  <div class="hero-text">
-    <p class="label">{{ h.eyebrow }}</p>
-    <h1>{{ h.headline | mark(h.headline_mark) | safe }}</h1>
-    <p class="lead">{{ h.standfirst }}</p>
-    <p class="actions">
-      <a class="btn" href="/about/">About the project</a>
-      <a class="btn btn-line" href="/news/">News</a>
-    </p>
-  </div>
-
-  {#- Six triangles make the hexagon. Three carry the competence areas, three are printed as dots,
-      and all six meet at the centre, which stands for wellbeing. --dx/--dy is the way each piece moves out. #}
-  <div class="hex" id="hex">
-    <svg viewBox="0 0 520 480" role="group" aria-label="{{ h.framework_title }}">
-      <defs>
-        <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><circle cx="6" cy="6" r="2.6" /></pattern>
-      </defs>
-      <polygon class="piece tone" style="--dx:1;--dy:0;--i:1" points="260,240 433.2,140 433.2,340" />
-      <polygon class="piece tone" style="--dx:-.5;--dy:.866;--i:3" points="260,240 260,440 86.8,340" />
-      <polygon class="piece tone" style="--dx:-.5;--dy:-.866;--i:5" points="260,240 86.8,140 260,40" />
-      <polygon class="piece area a1" data-k="0" style="--dx:-1;--dy:0;--i:4" points="260,240 86.8,340 86.8,140" tabindex="0" role="button" aria-label="{{ h.areas[0].title }}" />
-      <polygon class="piece area a2" data-k="1" style="--dx:.5;--dy:.866;--i:2" points="260,240 433.2,340 260,440" tabindex="0" role="button" aria-label="{{ h.areas[1].title }}" />
-      <polygon class="piece area a3" data-k="2" style="--dx:.5;--dy:-.866;--i:0" points="260,240 260,40 433.2,140" tabindex="0" role="button" aria-label="{{ h.areas[2].title }}" />
-      <circle class="core" data-k="3" cx="260" cy="240" r="30" tabindex="0" role="button" aria-label="{{ h.center.title }}" />
-    </svg>
-    <div class="hex-say" aria-live="polite">
-      <div class="on"><h2>{{ h.framework_title }}</h2><p>{{ h.framework_text }}</p></div>
-      {%- for x in h.areas %}
-      <div><h2>{{ x.title }}</h2><p>{{ x.detail }}</p></div>
-      {%- endfor %}
-      <div><h2>{{ h.center.title }}</h2><p>{{ h.center.detail }}</p></div>
-    </div>
-    <p class="hex-keys">
-      {%- for x in h.areas %}
-      <button type="button" class="k{{ loop.index }}" data-k="{{ loop.index0 }}"><i></i>{{ x.short }}</button>
-      {%- endfor %}
-      <button type="button" class="k4" data-k="3"><i></i>{{ h.center.short }}</button>
-    </p>
-  </div>
-</section>
-
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-run">
-    {%- for n in range(0, 6) %}{% for f in h.figures %}<span><b>{{ f.value }}</b> {{ f.label }}</span><i>▲</i>{% endfor %}{% endfor %}
-  </div>
-</div>
-<p class="sr-only">{% for f in h.figures %}{{ f.value }} {{ f.label | lower }}{% if not loop.last %}, {% endif %}{% endfor %}.</p>
-
-<section class="band band-pink">
-  <div class="wrap">
-    <p class="label">{{ h.find_label }}</p>
-    <p class="statement">{{ h.find }}</p>
-  </div>
-</section>
-
-<section class="band band-ink teeth">
-  <div class="wrap">
-    {{ m.heading(h.problem_title, "01 ▲ The problem") }}
-    <ol class="rows">
-      {%- for c in db.about.challenges %}
-      <li><h3>{{ c.title }}</h3><p>{{ c.text }}</p></li>
-      {%- endfor %}
-    </ol>
-    <p class="more"><a class="btn btn-light" href="/about/">How the project works</a></p>
-  </div>
-</section>
-
-<section class="band band-mint teeth" data-anim>
-  <div class="wrap learners">
+<section class="hero">
+  <div class="wrap hero-grid">
     <div>
-      {{ m.heading(h.learners_title, "02 ▲ The test") }}
-      <p class="statement small">{{ h.learners_lead }}</p>
-      <p class="prose-p">{{ h.learners_text }}</p>
+      {% if h.eyebrow %}<p class="label">{{ h.eyebrow }}</p>{% endif %}
+      <h1>{{ h.headline }}</h1>
+      <p class="lead">{{ h.standfirst }}</p>
+      <p class="actions">
+        <a class="btn btn-solid" href="/about/">About the project</a>
+        <a class="btn" href="/news/">Read the news</a>
+      </p>
     </div>
-    <div class="dots" role="img" aria-label="A field of 1,000 dots, one per learner"></div>
-  </div>
-</section>
-
-{%- if db.news.length %}
-<section class="section wrap">
-  {{ m.heading("Latest news", "03 ▲ News") }}
-  <div class="cards">
-    {%- for item in db.news | take(3) %}
-    {{ m.newsCard(item, types) }}
-    {%- endfor %}
-  </div>
-  {% if db.news.length > 3 %}<p class="more"><a class="btn btn-line" href="/news/">All news</a></p>{% endif %}
-</section>
-{%- endif %}
-
-<section class="section wrap" id="contact">
-  <div class="signup-box">
-    <div>
-      {{ m.heading(h.newsletter_title, "04 ▲ Newsletter") }}
-      <p class="prose-p">{{ h.newsletter_text }}</p>
-      <p class="prose-p">{{ h.contact_text }} <a href="mailto:{{ db.site.email }}">{{ db.site.email }}</a></p>
-    </div>
-    <form class="signup" id="signup" action="https://api.web3forms.com/submit" method="post" data-email="{{ db.site.email }}">
+    <form class="signup signup-card" id="newsletter" action="https://api.web3forms.com/submit" method="post" data-email="{{ db.site.email }}">
+      <p class="label">Newsletter</p>
+      <h2>{{ h.newsletter_title }}</h2>
+      <p class="signup-text">{{ h.newsletter_text }}</p>
       <input type="hidden" name="access_key" value="{{ db.site.web3forms_key }}" />
       <input type="hidden" name="subject" value="TRIAD newsletter sign-up" />
       <input type="hidden" name="from_name" value="TRIAD website" />
       <input type="checkbox" name="botcheck" tabindex="-1" aria-hidden="true" class="hp" />
       <label for="signup-email" class="label">Email address</label>
-      <input id="signup-email" type="email" name="email" placeholder="you@school.eu" autocomplete="email" required />
-      <label class="consent"><input type="checkbox" name="consent" value="yes" required /><span>{{ h.newsletter_consent }}</span></label>
-      <button class="btn" type="submit">Sign up for the newsletter</button>
+      <input id="signup-email" type="email" name="email" aria-label="Email address" placeholder="you@school.eu" autocomplete="email" required />
+      <label class="consent"><input type="checkbox" name="consent" value="yes" required /><span>{{ h.newsletter_consent }} <a href="/privacy/">Privacy notice</a></span></label>
+      <button class="btn btn-solid" type="submit">Sign up for the newsletter</button>
       <p class="signup-msg" role="status" hidden></p>
+      <p class="signup-contact" id="contact">{{ h.contact_text }} <a href="mailto:{{ db.site.email }}">{{ db.site.email }}</a></p>
     </form>
   </div>
+  {% waves "waves" %}
 </section>
 
+{%- if db.news.length %}
 <section class="section wrap">
-  {{ m.heading("Who is in TRIAD?", "05 ▲ Consortium", db.partners.standfirst) }}
-  <ul class="logos">
-    {%- for p in db.partners.items %}
-    <li><img src="{{ p.logo }}" alt="{{ p.name }}" loading="lazy" /></li>
+  <div class="head head-row">
+    <h2>News</h2>
+    <a class="more-link" href="/news/">All news →</a>
+  </div>
+  <div class="cards">
+    {%- for item in db.news | take(3) %}
+    {{ m.newsCard(item, types) }}
     {%- endfor %}
-  </ul>
-  <p class="more"><a class="btn btn-line" href="/consortium/">Meet the consortium</a></p>
+  </div>
 </section>
+{%- endif %}
 
 <script>
+  // Newsletter sign-up: sent in the background so the visitor stays on the page.
   (function () {
-    // The hexagon: pointing at, tapping or tabbing to a piece shows its area. Until then the pieces take turns.
-    var hex = document.getElementById("hex");
-    if (hex) {
-      var hot = hex.querySelectorAll("svg [data-k]"), keys = hex.querySelectorAll(".hex-keys button"), says = hex.querySelectorAll(".hex-say > div"), timer;
-      var set = function (k) {
-        hex.classList.toggle("hl", k !== null);
-        hot.forEach(function (p) { p.classList.toggle("on", Number(p.dataset.k) === k); });
-        keys.forEach(function (b) { b.classList.toggle("on", Number(b.dataset.k) === k); });
-        says.forEach(function (d, i) { d.classList.toggle("on", i === (k === null ? 0 : k + 1)); });
-      };
-      var stop = function () { clearInterval(timer); };
-      [hot, keys].forEach(function (list) {
-        list.forEach(function (el) {
-          var k = Number(el.dataset.k);
-          el.addEventListener("mouseenter", function () { stop(); set(k); });
-          el.addEventListener("focus", function () { stop(); set(k); });
-          el.addEventListener("click", function () { stop(); set(k); });
-        });
-      });
-      hex.addEventListener("mouseleave", function () { set(null); });
-      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        var n = -1; timer = setInterval(function () { n = (n + 1) % 5; set(n === 4 ? null : n); }, 2800);
-      }
-    }
-    // Newsletter sign-up: sent in the background so the visitor stays on the page.
-    var form = document.getElementById("signup");
+    var form = document.getElementById("newsletter");
     if (!form) return;
     var msg = form.querySelector(".signup-msg");
     form.addEventListener("submit", function (e) {

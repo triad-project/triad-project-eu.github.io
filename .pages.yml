@@ -29,6 +29,12 @@ content:
             - { value: event, label: Event }
             - { value: result, label: Result }
             - { value: press, label: Press release }
+      - name: tags
+        label: Tags (one to three)
+        type: select
+        options:
+          multiple: true
+          values: [Project, Consortium, Events, Research, Policy, Schools and teachers, Outputs]
       - name: partner
         label: Partner the news comes from (optional)
         type: select
@@ -38,9 +44,11 @@ content:
         label: Draft. Untick to publish on the site
         type: boolean
         default: true
+      - { name: pinned, label: Keep at the top of the news list and on the home page, type: boolean }
       - { name: summary, label: Summary (one or two sentences, shown in the news list), type: text, required: true }
       - { name: body, label: Text, type: rich-text, options: { format: html } }
       - { name: image, label: Picture (no recognisable pupils without a signed consent form), type: image }
+      - { name: image_tall, label: The picture is upright (a report cover or poster). Show it whole, type: boolean }
       - { name: image_alt, label: Picture description for screen readers, type: string }
       - { name: image_credit, label: Picture credit (photographer or organisation), type: string }
       - { name: link, label: Link to read more (optional), type: string }
@@ -84,6 +92,7 @@ content:
     fields:
       - { name: title, label: Page title, type: string }
       - { name: standfirst, label: Introduction, type: text }
+      - { name: intro, label: Text above the partner list, type: text }
       - name: items
         label: Partners
         type: object
@@ -94,6 +103,9 @@ content:
           - { name: role, label: Role, type: select, options: { values: [Coordinator, Partner] } }
           - { name: city, label: City, type: string }
           - { name: country, label: Country, type: string }
+          - { name: kind, label: Kind of organisation, type: string }
+          - { name: brings, label: Expertise the partner brings, type: text }
+          - { name: in_triad, label: What the partner does in TRIAD, type: text }
           - { name: logo, label: Logo, type: string }
           - { name: url, label: Website, type: string }
 
@@ -103,17 +115,17 @@ content:
     path: content/home.json
     format: json
     fields:
-      - { name: eyebrow, label: Line above the headline, type: string }
+      - { name: eyebrow, label: Small line above the headline (leave empty for none), type: string }
       - { name: headline, label: Headline, type: string }
       - { name: standfirst, label: Introduction, type: text }
       - name: figures
-        label: Figures
+        label: Figures (shown on the Consortium page)
         type: object
         list: true
         fields:
           - { name: value, label: Number, type: string }
           - { name: label, label: Label, type: string }
-      - { name: framework_title, label: Framework heading, type: string }
+      - { name: framework_title, label: Framework heading (shown on the About page), type: string }
       - { name: framework_text, label: Framework text, type: text }
       - name: areas
         label: Framework areas (the three strands)
@@ -124,7 +136,7 @@ content:
           - { name: title, label: Title, type: string }
           - { name: detail, label: Detail, type: string }
       - name: center
-        label: Wellbeing (not shown at present)
+        label: Well-being (the fourth line of the framework box on the About page)
         type: object
         fields:
           - { name: short, label: Word in the diagram, type: string }
@@ -181,6 +193,7 @@ content:
     format: json
     fields:
       - { name: email, label: Contact email, type: string }
+      - { name: goatcounter_code, label: Visit counter - GoatCounter site code (leave empty to switch counting off), type: string }
       - name: social
         label: Social media (a channel shows in the footer once its link is filled in)
         type: object
@@ -188,3 +201,21 @@ content:
         fields:
           - { name: name, label: Channel, type: string }
           - { name: url, label: Link, type: string }
+
+  - name: privacy
+    label: Privacy notice
+    type: file
+    path: content/privacy.json
+    format: json
+    fields:
+      - { name: title, label: Page title, type: string }
+      - { name: standfirst, label: Introduction, type: text }
+      - { name: updated, label: Last updated, type: date }
+      - name: sections
+        label: Sections
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Heading, type: string }
+          - { name: text, label: Text (blank line between paragraphs), type: text }
+          - { name: when, label: Show only when visit counting is on (counter) or off (nocounter). Leave empty to always show, type: string }

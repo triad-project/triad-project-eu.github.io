@@ -1,26 +1,152 @@
 {
   "title": "Outputs",
-  "standfirst": "Public deliverables, publications and materials appear here as they are published.",
+  "standfirst": "Public deliverables appear here once the granting authority has accepted them. Publications and materials are added as they come out.",
   "note": "Planned dates follow the Grant Agreement and can shift.",
   "items": [
-    { "id": "D11.1", "title": "Project Governance and Quality Management Handbook", "wp": "WP11", "lead": "RPTU", "month": 3, "url": "" },
-    { "id": "D9.1", "title": "Communication and Stakeholder Engagement Strategy", "wp": "WP9", "lead": "VIL", "month": 4, "url": "" },
-    { "id": "D1.1", "title": "Systematic Review of Pedagogical Models", "wp": "WP1", "lead": "RPTU", "month": 6, "url": "" },
-    { "id": "D1.2", "title": "Integrated Competence Framework and AI Tool Landscape", "wp": "WP1", "lead": "HRW", "month": 9, "url": "" },
-    { "id": "D2.1", "title": "Pattern Library v0.1 (12-15 pedagogical patterns)", "wp": "WP2", "lead": "HRW", "month": 11, "url": "" },
-    { "id": "D2.2", "title": "Co-created Pattern Library and Classroom Scenario Portfolio", "wp": "WP2", "lead": "VIL", "month": 15, "url": "" },
-    { "id": "D4.1", "title": "Pre-Piloting Protocol and Validation Report", "wp": "WP4", "lead": "EA", "month": 17, "url": "" },
-    { "id": "D9.2", "title": "Mid-Term Dissemination and Engagement Report", "wp": "WP9", "lead": "VIL", "month": 18, "url": "" },
-    { "id": "D5.1", "title": "Operational Readiness Report for EU-Wide Piloting", "wp": "WP5", "lead": "JYU", "month": 20, "url": "" },
-    { "id": "D5.2", "title": "Report on EU-wide Implementation of AI-Enriched Classroom Scenarios", "wp": "WP5", "lead": "HRW", "month": 24, "url": "" },
-    { "id": "D6.1", "title": "Comprehensive Analysis of Piloting Outcomes Across Countries", "wp": "WP6", "lead": "RPTU", "month": 27, "url": "" },
-    { "id": "D6.2", "title": "Stakeholder Validation and Interpretation Report", "wp": "WP6", "lead": "ZEUS", "month": 29, "url": "" },
-    { "id": "D7.2", "title": "Interactive Data Exploration Dashboard and Integration Framework", "wp": "WP7", "lead": "QUANTIA", "month": 30, "url": "" },
-    { "id": "D8.1", "title": "Implementation Toolkit for Schools and Educational Leaders", "wp": "WP8", "lead": "UNIZG FOI", "month": 30, "url": "" },
-    { "id": "D8.2", "title": "Professional Development Modules and Micro-Credential Framework", "wp": "WP8", "lead": "HRW", "month": 36, "url": "" },
-    { "id": "D8.3", "title": "Policy Recommendations and Strategic Adoption Roadmap", "wp": "WP8", "lead": "ZEUS", "month": 36, "url": "" },
-    { "id": "D10.1", "title": "Policy Handover Package", "wp": "WP10", "lead": "QUANTIA", "month": 36, "url": "" },
-    { "id": "D10.2", "title": "Final Dissemination, Adoption and Policy Transfer Report", "wp": "WP10", "lead": "VIL", "month": 36, "url": "" }
+    {
+      "id": "D11.1",
+      "title": "Project Governance and Quality Management Handbook",
+      "wp": "WP11",
+      "lead": "RPTU",
+      "month": 3,
+      "url": ""
+    },
+    {
+      "id": "D9.1",
+      "title": "Communication and Stakeholder Engagement Strategy",
+      "wp": "WP9",
+      "lead": "VIL",
+      "month": 4,
+      "url": ""
+    },
+    {
+      "id": "D1.1",
+      "title": "Systematic Review of Pedagogical Models",
+      "wp": "WP1",
+      "lead": "RPTU",
+      "month": 6,
+      "url": ""
+    },
+    {
+      "id": "D1.2",
+      "title": "Integrated Competence Framework and AI Tool Landscape",
+      "wp": "WP1",
+      "lead": "HRW",
+      "month": 9,
+      "url": ""
+    },
+    {
+      "id": "D2.1",
+      "title": "Pattern Library v0.1 (12-15 pedagogical patterns)",
+      "wp": "WP2",
+      "lead": "HRW",
+      "month": 11,
+      "url": ""
+    },
+    {
+      "id": "D2.2",
+      "title": "Co-created Pattern Library and Classroom Scenario Portfolio",
+      "wp": "WP2",
+      "lead": "VIL",
+      "month": 15,
+      "url": ""
+    },
+    {
+      "id": "D4.1",
+      "title": "Pre-Piloting Protocol and Validation Report",
+      "wp": "WP4",
+      "lead": "EA",
+      "month": 17,
+      "url": ""
+    },
+    {
+      "id": "D9.2",
+      "title": "Mid-Term Dissemination and Engagement Report",
+      "wp": "WP9",
+      "lead": "VIL",
+      "month": 18,
+      "url": ""
+    },
+    {
+      "id": "D5.1",
+      "title": "Operational Readiness Report for EU-Wide Piloting",
+      "wp": "WP5",
+      "lead": "JYU",
+      "month": 20,
+      "url": ""
+    },
+    {
+      "id": "D5.2",
+      "title": "Report on EU-wide Implementation of AI-Enriched Classroom Scenarios",
+      "wp": "WP5",
+      "lead": "HRW",
+      "month": 24,
+      "url": ""
+    },
+    {
+      "id": "D6.1",
+      "title": "Comprehensive Analysis of Piloting Outcomes Across Countries",
+      "wp": "WP6",
+      "lead": "RPTU",
+      "month": 27,
+      "url": ""
+    },
+    {
+      "id": "D6.2",
+      "title": "Stakeholder Validation and Interpretation Report",
+      "wp": "WP6",
+      "lead": "ZEUS",
+      "month": 29,
+      "url": ""
+    },
+    {
+      "id": "D7.2",
+      "title": "Interactive Data Exploration Dashboard and Integration Framework",
+      "wp": "WP7",
+      "lead": "QUANTIA",
+      "month": 30,
+      "url": ""
+    },
+    {
+      "id": "D8.1",
+      "title": "Implementation Toolkit for Schools and Educational Leaders",
+      "wp": "WP8",
+      "lead": "UNIZG FOI",
+      "month": 30,
+      "url": ""
+    },
+    {
+      "id": "D8.2",
+      "title": "Professional Development Modules and Micro-Credential Framework",
+      "wp": "WP8",
+      "lead": "HRW",
+      "month": 36,
+      "url": ""
+    },
+    {
+      "id": "D8.3",
+      "title": "Policy Recommendations and Strategic Adoption Roadmap",
+      "wp": "WP8",
+      "lead": "ZEUS",
+      "month": 36,
+      "url": ""
+    },
+    {
+      "id": "D10.1",
+      "title": "Policy Handover Package",
+      "wp": "WP10",
+      "lead": "QUANTIA",
+      "month": 36,
+      "url": ""
+    },
+    {
+      "id": "D10.2",
+      "title": "Final Dissemination, Adoption and Policy Transfer Report",
+      "wp": "WP10",
+      "lead": "VIL",
+      "month": 36,
+      "url": ""
+    }
   ],
   "other_title": "Publications and materials",
   "other": []

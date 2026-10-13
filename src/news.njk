@@ -5,17 +5,47 @@ key: news
 pageTitle: News
 ---
 {%- import "macros.njk" as m -%}
-<section class="page-head wrap">
+<section class="page-head">
+  <div class="wrap">
   {{ m.heading("News", "From the project", "Project news, events and results from the eleven TRIAD partners.", 1) }}
+  </div>
+  {% waves "waves" %}
 </section>
-<section class="wrap">
+<section class="wrap section-tight">
   {%- if db.news.length %}
-  <div class="cards">
+  {%- set all = [] %}
+  {%- for item in db.news %}{% for t in item.tags or [] %}{% if t not in all %}{% set all = (all.push(t), all) %}{% endif %}{% endfor %}{% endfor %}
+  {#- The tag filter only earns its place once there is a longer list to filter. #}
+  {%- if all.length > 1 and db.news.length > 6 %}
+  <p class="filters" id="filters">
+    <button type="button" class="on" data-f="">All</button>
+    {%- for t in all | sort %}
+    <button type="button" data-f="{{ t }}">{{ t }}</button>
+    {%- endfor %}
+  </p>
+  {%- endif %}
+  <div class="cards" id="cards">
     {%- for item in db.news %}
-    {{ m.newsCard(item, types) }}
+    {{ m.newsCard(item, types, loop.first and db.news.length > 4) }}
     {%- endfor %}
   </div>
   {%- else %}
   <p class="prose-p">The first news items will appear here soon.</p>
   {%- endif %}
 </section>
+<script>
+  // Filter the list by tag.
+  (function () {
+    var bar = document.getElementById("filters"), list = document.getElementById("cards");
+    if (!bar || !list) return;
+    var cards = list.querySelectorAll(".card");
+    bar.addEventListener("click", function (e) {
+      var b = e.target.closest("button");
+      if (!b) return;
+      bar.querySelectorAll("button").forEach(function (x) { x.classList.toggle("on", x === b); });
+      cards.forEach(function (c) { c.hidden = !!b.dataset.f && c.dataset.tags.split("|").indexOf(b.dataset.f) < 0; });
+      list.classList.toggle("filtered", !!b.dataset.f);
+    });
+  })();
+</script>
+

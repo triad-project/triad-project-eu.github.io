@@ -9,15 +9,18 @@ export default function () {
     .map((f) => ({ slug: f.replace(/^\d{4}-\d{2}-\d{2}-/, "").replace(/\.json$/, ""), ...read(`news/${f.slice(0, -5)}`) }))
     // Posts marked as drafts show in the local preview only. They are left out when the site is published.
     .filter((x) => !(x.draft && process.env.GITHUB_ACTIONS))
-    .sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+    // Items marked "keep at the top" come first, then the newest.
+    .sort((a, b) => (b.pinned ? 1 : 0) - (a.pinned ? 1 : 0) || (b.date || "").localeCompare(a.date || ""));
 
   return {
     site: read("site"),
     home: read("home"),
     about: read("about"),
     workplan: read("workplan").items,
+    workplanMeta: read("workplan"),
     partners: read("partners"),
     outputs: read("outputs"),
+    privacy: read("privacy"),
     news,
   };
 }

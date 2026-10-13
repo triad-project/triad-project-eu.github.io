@@ -5,17 +5,42 @@ key: consortium
 pageTitle: Consortium
 ---
 {%- import "macros.njk" as m -%}
-<section class="page-head wrap">
+<section class="page-head">
+  <div class="wrap">
   {{ m.heading(db.partners.title, "Who is in TRIAD?", db.partners.standfirst, 1) }}
+  </div>
+  {% waves "waves" %}
 </section>
 <section class="wrap">
+  <dl class="figures-row">
+    {%- for f in db.home.figures %}
+    <div><dd>{{ f.value }}</dd><dt>{{ f.label }}</dt></div>
+    {%- endfor %}
+  </dl>
+  {% if db.partners.intro %}<div class="prose consortium-intro">{{ db.partners.intro | paras | safe }}</div>{% endif %}
+  <div class="map-block">
+    <div>
+      <h2>{{ db.partners.map_title }}</h2>
+      <p class="prose-p">{{ db.partners.map_text }}</p>
+      <ul class="map-key">
+        <li><i class="c-both"></i>Pre-test pilots and EU-wide pilots</li>
+        <li><i class="c-eu"></i>EU-wide pilots</li>
+        <li><i class="c-partner"></i>Partner country, no pilot</li>
+        <li><i class="dot"></i>Partner's home city</li>
+      </ul>
+    </div>
+    {% europeMap db.partners.items %}
+  </div>
+  <h2 class="h-sub">The partners</h2>
   <ul class="partners">
     {%- for p in db.partners.items %}
     <li>
       <div class="partner-logo"><img src="{{ p.logo }}" alt="" loading="lazy" /></div>
-      <p class="label"><span class="tag{% if p.role == 'Coordinator' %} tag-pink{% endif %}">{{ p.role }}</span> {{ p.acronym }}</p>
+      <p class="label"><span class="tag{% if p.role == 'Coordinator' %} tag-pink{% endif %}">{{ p.role }}</span> Short name: {{ p.acronym }}</p>
       <p class="partner-name">{% if p.url %}<a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.name }}</a>{% else %}{{ p.name }}{% endif %}</p>
-      <p class="meta">{{ p.city }}, {{ p.country }}</p>
+      <p class="meta">{% if p.kind %}{{ p.kind }} · {% endif %}{{ p.city }}, {{ p.country }}</p>
+      {% if p.brings %}<p class="partner-role"><b>Expertise</b> {{ p.brings }}</p>{% endif %}
+      {% if p.in_triad %}<p class="partner-role partner-role-2"><b>In TRIAD</b> {{ p.in_triad }}</p>{% endif %}
     </li>
     {%- endfor %}
   </ul>

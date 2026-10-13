@@ -1,0 +1,33 @@
+{
+  "title": "Privacy notice",
+  "standfirst": "What this website does with personal data, in plain words.",
+  "updated": "2026-10-13",
+  "sections": [
+    {
+      "title": "Who runs this website",
+      "text": "The TRIAD website and newsletter are run by VILNIAUS GEDIMINO TECHNIKOS UNIVERSITETAS (VILNIUS TECH), the partner that leads the project's communication work. For any question about your data, write to info@triad-project.eu."
+    },
+    {
+      "title": "Newsletter sign-up",
+      "text": "If you sign up for the newsletter, we store your email address and the fact that you agreed to receive it. We use the address only to send you news about TRIAD. The sign-up form is sent to the project mailbox through a form service, Web3Forms.\n\nWe rely on your consent. You can withdraw it at any time by writing to info@triad-project.eu, and we will remove your address."
+    },
+    {
+      "title": "Visiting the website",
+      "text": "The website sets no cookies and does not track visitors. It shows no advertising and loads no content from other services: the typeface and all pictures are served from the website itself.\n\nAs with any website, the hosting provider processes technical data, such as your IP address, for the short time needed to deliver the pages and keep the service secure.",
+      "when": "nocounter"
+    },
+    {
+      "when": "counter",
+      "title": "Visiting the website",
+      "text": "The website sets no cookies and shows no advertising. The typeface and all pictures are served from the website itself.\n\nWe count visits, because the project reports to the European Commission how many people it reaches. For this we use GoatCounter, a counting service hosted in the European Union (Finland and Germany). It records which page was opened, the site the visitor came from, the type of browser and system, the screen width and the country. It stores no IP address, sets no cookie and keeps nothing in your browser, so it cannot follow you from one visit to the next or across other websites. We also count how often a file is opened from the Outputs page.\n\nAs with any website, the hosting provider processes technical data, such as your IP address, for the short time needed to deliver the pages and keep the service secure."
+    },
+    {
+      "title": "Email",
+      "text": "If you write to us, we use your address and your message to answer you."
+    },
+    {
+      "title": "Your rights",
+      "text": "Under the General Data Protection Regulation you can ask what data we hold about you, have it corrected or erased, and object to its use. Write to info@triad-project.eu. You can also lodge a complaint with the data protection authority of your country."
+    }
+  ]
+}

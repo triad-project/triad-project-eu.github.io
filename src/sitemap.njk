@@ -8,6 +8,7 @@ eleventyExcludeFromCollections: true
 {%- for n in nav %}
   <url><loc>{{ db.site.url }}{{ n.url }}</loc></url>
 {%- endfor %}
+  <url><loc>{{ db.site.url }}/privacy/</loc></url>
 {%- for item in db.news %}
   <url><loc>{{ db.site.url }}/news/{{ item.slug }}/</loc><lastmod>{{ item.date }}</lastmod></url>
 {%- endfor %}

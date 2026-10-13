@@ -1,7 +1,7 @@
 {
-  "eyebrow": "Horizon Europe · GA 101289995 · 2026–2029",
+  "eyebrow": "",
   "headline": "Foundational skills and AI skills are not a trade-off.",
-  "standfirst": "TRIAD studies how secondary schools can build AI competences without giving up foundational competences, inclusion or wellbeing. Eleven partners across seven countries are running the work, coordinated by RPTU Kaiserslautern.",
+  "standfirst": "TRIAD studies how secondary schools can build AI competences without giving up foundational competences, inclusion or well-being. Eleven partners across seven countries are running the work, coordinated by Rheinland-Pfälzische Technische Universität Kaiserslautern-Landau (RPTU).",
   "figures": [
     {
       "value": "11",
@@ -17,32 +17,36 @@
     }
   ],
   "newsletter_title": "Keep in touch",
-  "newsletter_text": "We send one email per project milestone, no more than four a year. Ask us to add you to the list.",
+  "newsletter_text": "Leave your email address and we will keep you posted on TRIAD's results, events and materials.",
   "newsletter_consent": "I agree that TRIAD may store my email address to send the project newsletter. You can unsubscribe at any time.",
   "contact_text": "Press, school and partner enquiries:",
   "framework_title": "Three areas of competence, one framework",
-  "framework_text": "TRIAD co-creates and tests an integrated framework that balances three areas of competence, with safeguards for learner wellbeing built in.",
+  "framework_text": "TRIAD co-creates and tests an integrated framework that balances three areas of competence, with safeguards for learner well-being built in.",
   "areas": [
     {
       "short": "Foundational",
       "title": "Foundational competences",
-      "detail": "Literacy, numeracy, science"
+      "detail": "Literacy, numeracy, science",
+      "icon": "book"
     },
     {
       "short": "Transversal",
       "title": "Transversal competences",
-      "detail": "Critical thinking, collaboration, metacognition"
+      "detail": "Critical thinking, collaboration, metacognition",
+      "icon": "nodes"
     },
     {
       "short": "AI and digital",
       "title": "AI and digital literacies",
-      "detail": "Using AI and digital tools with understanding"
+      "detail": "Using AI and digital tools with understanding",
+      "icon": "chip"
     }
   ],
   "center": {
-    "short": "Wellbeing",
-    "title": "Wellbeing safeguards",
-    "detail": "Cognitive, emotional and social wellbeing"
+    "short": "Well-being",
+    "title": "Well-being safeguards",
+    "detail": "Cognitive, emotional and social well-being",
+    "icon": "heart"
   },
   "classroom_eyebrow": "For secondary schools and VET",
   "classroom_title": "In classrooms, with learners aged 12 to 18",
@@ -51,7 +55,7 @@
   "given_label": "Given",
   "find_label": "What we want to find out",
   "find": "When AI genuinely enhances learning rather than replacing it.",
-  "figure_caption": "Three areas of competence held in balance, with learner wellbeing at the centre.",
+  "figure_caption": "Three areas of competence held in balance, with learner well-being at the centre.",
   "problem_title": "What is the problem?",
   "learners_title": "How is it tested?",
   "learners_text": "One dot per learner. The EU-wide classroom pilots compare classes that use the AI-enriched scenarios with classes that do not, before and after, in Lithuania, Germany, Croatia, Finland, Italy and Greece.",

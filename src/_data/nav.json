@@ -1,6 +1,22 @@
 [
-  { "key": "about", "label": "About", "url": "/about/" },
-  { "key": "consortium", "label": "Consortium", "url": "/consortium/" },
-  { "key": "outputs", "label": "Outputs", "url": "/outputs/" },
-  { "key": "news", "label": "News", "url": "/news/" }
+  {
+    "key": "news",
+    "label": "News",
+    "url": "/news/"
+  },
+  {
+    "key": "about",
+    "label": "About",
+    "url": "/about/"
+  },
+  {
+    "key": "consortium",
+    "label": "Consortium",
+    "url": "/consortium/"
+  },
+  {
+    "key": "outputs",
+    "label": "Outputs",
+    "url": "/outputs/"
+  }
 ]

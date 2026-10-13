@@ -15,7 +15,7 @@
 {%- endif %}
 <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-<link rel="preload" href="/fonts/display.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="stylesheet" href="/styles.css" />
 <script>document.documentElement.classList.add("js");</script>
 </head>
@@ -23,12 +23,12 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap header-inner">
-    <a class="brand" href="/" aria-label="TRIAD, home">{% include "logo.svg" %}</a>
+    <a class="brand" href="/" aria-label="TRIAD, home"><span class="plate">{% include "logo.svg" %}</span></a>
     <nav class="nav" aria-label="Main">
       {%- for n in nav %}
       <a href="{{ n.url }}"{% if key == n.key %} aria-current="page"{% endif %}>{{ n.label }}</a>
       {%- endfor %}
-      <a class="nav-cta" href="/#contact">Contact</a>
+      <a class="nav-cta" href="/#newsletter">Newsletter</a>
     </nav>
   </div>
 </header>
@@ -37,11 +37,19 @@
 {{ content | safe }}
 </main>
 
+{%- if key != "home" %}
+<aside class="news-strip">
+  <div class="wrap">
+    <div><p class="label">Newsletter</p><p class="news-strip-text">{{ db.home.newsletter_text }}</p></div>
+    <a class="btn btn-solid" href="/#newsletter">Sign up for the newsletter</a>
+  </div>
+</aside>
+{%- endif %}
 <footer class="site-footer">
   <div class="wrap">
     <div class="funding">
-      <img src="/images/eu-emblem-horizontal-pos-tight.png" alt="Funded by the European Union" width="262" height="56" />
-      <p>Funded by the European Union under Grant Agreement No 101289995. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the European Research Executive Agency (REA). Neither the European Union nor the granting authority can be held responsible for them.</p>
+      <img src="/images/eu-emblem-horizontal-pos-tight.png" alt="Funded by the European Union" width="300" height="64" />
+      <p>Funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the European Research Executive Agency (REA). Neither the European Union nor the granting authority can be held responsible for them. Grant Agreement No 101289995.</p>
     </div>
     <div class="footer-row">
       <nav class="footer-nav" aria-label="Footer">
@@ -50,6 +58,7 @@
         {%- endfor %}
       </nav>
       <div class="footer-contact">
+        <a href="/privacy/">Privacy notice</a>
         <a href="mailto:{{ site.email }}">{{ site.email }}</a>
         {%- for s in site.social %}{% if s.url %}
         <a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.name }}</a>
@@ -57,7 +66,7 @@
       </div>
     </div>
   </div>
-  <div class="footer-base"><div class="wrap">triad-project.eu ▲ Grant Agreement {{ site.grant }}</div></div>
+  <div class="footer-base"><div class="wrap">triad-project.eu · Grant Agreement {{ site.grant }}</div></div>
 </footer>
 <script>
   // Blocks marked data-anim get the class "in" once, when they scroll into view.
@@ -70,5 +79,17 @@
     els.forEach(function (el) { io.observe(el); });
   })();
 </script>
+{%- if site.goatcounter_code %}
+<script>
+  // Visit counting (GoatCounter): no cookies, nothing stored in the browser. Files opened from the Outputs page are counted as downloads.
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest(".list a[href]");
+    if (a && window.goatcounter && window.goatcounter.count) {
+      window.goatcounter.count({ path: "download: " + a.textContent.trim().slice(0, 120), title: a.href, event: true });
+    }
+  });
+</script>
+<script data-goatcounter="https://{{ site.goatcounter_code }}.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+{%- endif %}
 </body>
 </html>

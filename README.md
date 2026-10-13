@@ -4,7 +4,7 @@ Website of TRIAD (Horizon Europe, Grant Agreement 101289995), in English. Mainta
 
 The site has four pages in the menu:
 
-- **About** - what the project does, the four challenges, the work plan and the project record.
+- **About** - what the project does, the four questions it studies, the four phases with their work packages, and the project record.
 - **Consortium** - the eleven partners.
 - **Outputs** - public deliverables, publications and materials, with links once they are published.
 - **News** - project news, events, results and press releases.
@@ -25,10 +25,11 @@ Content is edited in the browser with [Pages CMS](https://app.pagescms.org). No 
 
 Other things in the menu:
 
-- **Outputs** - when a deliverable is public, paste its link into the "Link" field of that deliverable. It then moves from the planned table to the published list. Papers, policy briefs, toolkits and videos go under "Publications and materials".
+- **Outputs** - when a deliverable is public, paste its link into the "Link" field of that deliverable. It is then marked as published and its title becomes the link. Papers, policy briefs, toolkits and videos go under "Publications and materials".
 - **Consortium** - partner names, websites and logos.
 - **Home page texts, About page texts** - the fixed texts of those pages.
-- **Contact and social media links** - a channel shows in the footer once its link is filled in.
+- **Contact and social media links** - a channel shows in the footer once its link is filled in. The visit counter is switched on here too.
+- **Privacy notice** - the text of the privacy page, which is linked from the footer and from the newsletter form.
 
 Rules we keep on this site:
 
@@ -45,6 +46,7 @@ Rules we keep on this site:
 - Every change on `main` is built and published by GitHub Actions (`.github/workflows/deploy.yml`) to GitHub Pages.
 - News items marked as draft show in the local preview only.
 - The newsletter form sends sign-ups through Web3Forms to the project mailbox. The key is in `content/site.json`.
+- Visits are counted with GoatCounter, without cookies, once its site code is filled in under "Contact and social media links". While the field is empty nothing is counted. The privacy notice shows the matching text by itself.
 - The work plan (`content/workplan.json`) follows the Grant Agreement and is changed only after an amendment.
 
 ## Run locally

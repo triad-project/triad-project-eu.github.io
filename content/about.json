@@ -1,30 +1,34 @@
 {
   "title": "About the project",
-  "standfirst": "TRIAD co-creates and tests a framework that balances foundational competences, transversal competences and AI literacy in secondary schools and vocational education, with learner wellbeing built in.",
-  "context": "Across Europe, adolescents are growing up in a digital environment shaped by generative AI, smartphones and social media. These technologies transform how they learn, communicate and prepare for future careers. The tools enable creativity, personalisation and collaboration, but evidence on their impact on learning and wellbeing is fragmented and often lags behind practice.\n\nTRIAD addresses this gap by co-creating and testing an integrated framework that balances foundational competences (literacy, numeracy, science), transversal competences (critical thinking, collaboration, metacognition) and AI and digital literacies, while embedding safeguards for cognitive, emotional and social wellbeing.\n\nThe project focuses on learners aged 12 to 18 in secondary schools and vocational education and training (VET), where competences must be consolidated and inequality risks peak.",
-  "challenges_title": "Four challenges the project tackles",
+  "standfirst": "TRIAD co-creates and tests a framework that balances foundational competences, transversal competences and AI literacy in secondary schools and vocational education, with learner well-being built in.",
+  "context": "Across Europe, adolescents are growing up in a digital environment shaped by generative AI, smartphones and social media. These technologies transform how they learn, communicate and prepare for future careers. The tools enable creativity, personalisation and collaboration, but evidence on their impact on learning and well-being is fragmented and often lags behind practice.\n\nTRIAD addresses this gap by co-creating and testing an integrated framework that balances foundational competences (literacy, numeracy, science), transversal competences (critical thinking, collaboration, metacognition) and AI and digital literacies, while embedding safeguards for cognitive, emotional and social well-being.\n\nThe project focuses on learners aged 12 to 18 in secondary schools and vocational education and training (VET), where competences must be consolidated and inequality risks peak.",
+  "challenges_title": "Four questions the project studies",
   "challenges": [
     {
-      "title": "Skill degradation and shallow learning",
-      "text": "AI-driven skill degradation and shallow learning, with the risk of over-reliance and reduced originality."
+      "title": "Skills and depth of learning",
+      "text": "TRIAD studies whether relying on AI weakens skills and makes learning shallower, and under which conditions it does the opposite.",
+      "icon": "trend"
     },
     {
-      "title": "Fragmented competence frameworks",
-      "text": "Competence frameworks that are fragmented and lack operationalised pathways."
+      "title": "Competence frameworks",
+      "text": "TRIAD studies how foundational, transversal and AI competences can be brought into one framework with clear pathways, where today's frameworks stand apart.",
+      "icon": "pieces"
     },
     {
-      "title": "Uneven readiness and equity gaps",
-      "text": "Uneven readiness and equity gaps that amplify socio-economic and digital divides."
+      "title": "Readiness and equity",
+      "text": "TRIAD studies how ready schools and learners are, and whether AI in the classroom widens or narrows socio-economic and digital divides.",
+      "icon": "bars"
     },
     {
-      "title": "Ambivalent evidence on wellbeing",
-      "text": "Ambivalent evidence on adolescents' wellbeing in digitally enriched education."
+      "title": "Well-being",
+      "text": "TRIAD studies how learning with digital and AI tools relates to adolescents' well-being, where the evidence so far points in different directions.",
+      "icon": "question"
     }
   ],
   "approach_title": "How the project works",
-  "approach": "Through large-scale classroom pilots across Europe, combined with neuroscientific methods (EEG and fNIRS), TRIAD will identify when AI genuinely enhances learning rather than replacing it. Classroom scenarios will be validated across diverse contexts and enriched by input from SMEs and labour market actors.",
-  "results_title": "What the project will deliver",
-  "results": "The outputs are classroom-ready designs, developmental pathways for students and teachers, and actionable policy recommendations. They will enable schools to adopt AI responsibly, reduce inequalities and strengthen Europe's human capital and resilience, in line with the European Education Area 2030 and the Digital Education Action Plan.",
+  "approach": "Through large-scale classroom pilots across Europe, combined with neuroscientific methods (EEG and fNIRS), TRIAD studies when AI genuinely enhances learning rather than replacing it. Classroom scenarios are validated across diverse contexts and enriched by input from SMEs and labour market actors.",
+  "results_title": "What the project works towards",
+  "results": "The project works towards classroom-ready designs, developmental pathways for students and teachers, and policy recommendations, to help schools adopt AI responsibly. This is in line with the European Education Area 2030 and the Digital Education Action Plan.",
   "workplan_title": "Twelve work packages, thirty-six months",
   "workplan_note": "Month 1 is September 2026. Work package titles, leads and months are those of the Grant Agreement.",
   "path_title": "From evidence to classrooms",
@@ -54,5 +58,8 @@
       "months": "M20-M36",
       "text": "Analysis across countries, then toolkits, training modules and policy recommendations."
     }
-  ]
+  ],
+  "connect_title": "Four phases around one framework",
+  "connect_text": "The work is organised in four phases. Each one feeds the TRIAD competence framework or draws on it. A participation strategy and data management and ethics run around all of them.",
+  "wp_title": "The work packages, phase by phase"
 }

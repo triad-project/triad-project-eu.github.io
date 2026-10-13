@@ -6,8 +6,11 @@ pageTitle: Outputs
 ---
 {%- import "macros.njk" as m -%}
 {%- set o = db.outputs -%}
-<section class="page-head wrap">
+<section class="page-head">
+  <div class="wrap">
   {{ m.heading(o.title, "Results", o.standfirst, 1) }}
+  </div>
+  {% waves "waves" %}
 </section>
 
 {%- if o.other.length %}
@@ -27,7 +30,7 @@ pageTitle: Outputs
     {%- for d in o.items %}
     <li{% if d.url %} class="done"{% endif %}>
       <b class="num">{{ d.id }}</b>
-      <div>{% if d.url %}<a href="{{ d.url }}" target="_blank" rel="noopener">{{ d.title }}</a>{% else %}{{ d.title }}{% endif %}<span class="meta">{{ d.wp }} ▲ Lead: {{ d.lead }}</span></div>
+      <div>{% if d.url %}<a href="{{ d.url }}" target="_blank" rel="noopener">{{ d.title }}</a>{% else %}{{ d.title }}{% endif %}<span class="meta">{{ d.wp }} · Lead: {{ d.lead | fullName }}</span></div>
       {% if d.url %}<span class="tag tag-mint">Published</span>{% else %}<span class="tag">{{ d.month | projectMonth }}</span>{% endif %}
     </li>
     {%- endfor %}

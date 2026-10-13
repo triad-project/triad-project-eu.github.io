@@ -11,18 +11,38 @@ eleventyComputed:
   description: "{{ item.summary }}"
   ogImage: "{{ item.image }}"
 ---
-<article class="post wrap">
-  <p><a class="back" href="/news/">← News</a></p>
-  <p class="label">{{ item.date | stamp }}{% if types[item.type] %} ▲ {{ types[item.type] }}{% endif %}{% if item.partner %} ▲ {{ item.partner }}{% endif %}</p>
-  <h1>{{ item.title }}</h1>
-  {% if item.draft %}<p class="tag tag-draft">Draft, not published</p>{% endif %}
-  {% if item.summary %}<p class="lead">{{ item.summary }}</p>{% endif %}
-  {%- if item.image %}
-  <figure>
-    <img src="{{ item.image }}" alt="{{ item.image_alt }}" />
-    {% if item.image_credit %}<figcaption>Picture: {{ item.image_credit }}</figcaption>{% endif %}
-  </figure>
-  {%- endif %}
-  <div class="prose">{{ item.body | safe }}</div>
-  {% if item.link %}<p class="actions"><a class="btn" href="{{ item.link }}" target="_blank" rel="noopener">Read more</a></p>{% endif %}
+{%- import "macros.njk" as m -%}
+<article class="post">
+  <header class="post-head">
+    <div class="wrap">
+      <p><a class="back" href="/news/">← News</a></p>
+      <p class="label">{{ item.date | niceDate }}{% if types[item.type] %} · {{ types[item.type] }}{% endif %}{% if item.partner %} · {{ item.partner | fullName }}{% endif %}</p>
+      <h1>{{ item.title }}</h1>
+      {% if item.draft %}<p class="tag tag-draft">Draft, not published</p>{% endif %}
+      {% if item.summary %}<p class="lead">{{ item.summary }}</p>{% endif %}
+      {% if item.tags and item.tags.length %}<ul class="tags tags-light">{% for t in item.tags %}<li>{{ t }}</li>{% endfor %}</ul>{% endif %}
+    </div>
+    {% waves "waves" %}
+  </header>
+  <div class="wrap post-body">
+    <figure>
+      {% if item.image %}<img{% if item.image_tall %} class="tall"{% endif %} src="{{ item.image }}" alt="{{ item.image_alt }}" />{% else %}{% cover item.slug %}{% endif %}
+      {% if item.image and item.image_credit %}<figcaption>Picture: {{ item.image_credit }}</figcaption>{% endif %}
+    </figure>
+    <div class="prose">{{ item.body | safe }}</div>
+    {% if item.link %}<p class="actions"><a class="btn btn-dark" href="{{ item.link }}" target="_blank" rel="noopener">Read more</a></p>{% endif %}
+  </div>
 </article>
+
+{%- set others = [] %}
+{%- for n in db.news %}{% if n.slug != item.slug and others.length < 3 %}{% set others = (others.push(n), others) %}{% endif %}{% endfor %}
+{%- if others.length %}
+<section class="section wrap">
+  <div class="head head-row"><h2>More news</h2><a class="more-link" href="/news/">All news →</a></div>
+  <div class="cards">
+    {%- for n in others %}
+    {{ m.newsCard(n, types) }}
+    {%- endfor %}
+  </div>
+</section>
+{%- endif %}

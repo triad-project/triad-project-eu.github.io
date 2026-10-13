@@ -2,3 +2,6 @@ node_modules
 _site
 .DS_Store
 .claude
+
+# News items set aside, not published
+_parked

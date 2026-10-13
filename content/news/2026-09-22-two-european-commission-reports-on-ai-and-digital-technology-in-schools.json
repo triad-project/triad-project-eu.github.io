@@ -1,0 +1,19 @@
+{
+  "date": "2026-09-22",
+  "type": "news",
+  "draft": false,
+  "pinned": true,
+  "partner": "",
+  "title": "Two European Commission reports on AI and digital technology in schools",
+  "summary": "The European Commission has published a review of the evidence on generative AI in learning and teaching, and a Eurydice report on digital education in schools across Europe.",
+  "image": "/assets/uploads/eurydice-digital-education-2026-cover.png",
+  "image_alt": "Cover of the Eurydice report Digital Education at school in Europe 2026, showing four pupils working with laptops and tablets.",
+  "image_credit": "European Commission, European Education and Culture Executive Agency (cover of the Eurydice report)",
+  "link": "https://education.ec.europa.eu/whats-new/news/new-reports-examine-how-ai-and-digital-technologies-are-shaping-education-in-europe",
+  "body": "<p>Two reports published by the European Commission on 22 September 2026 look at how generative AI and digital technologies are changing teaching and learning in Europe. Both are worth reading for anyone who follows the questions TRIAD works on.</p><h2>What generative AI means for learning</h2><p>The paper <a href=\"https://op.europa.eu/en/publication-detail/-/publication/e1317635-b62b-11f1-81de-01aa75ed71a1/language-en\" target=\"_blank\" rel=\"noopener\">Friend or foe? Evidence from the use of generative artificial intelligence in learning and teaching</a> reviews scientific studies on students, teachers, parents and education systems.</p><ul><li>Four in ten people aged 16 to 24 in the EU used generative AI tools for formal education in 2025, according to the Eurostat data the paper cites.</li><li>Doing a task better with AI is not the same as learning more. Students gain most when AI supports their own thinking and they stay actively engaged.</li><li>Relying on AI for tasks that build knowledge and thinking skills could hold back critical thinking.</li><li>Of the EU teachers surveyed in TALIS 2024, 29.7% had taken part in professional development on AI for teaching and learning.</li><li>The paper calls for large-scale, long-term research in European education settings.</li></ul><h2>How school systems are preparing</h2><p>The Eurydice report <a href=\"https://eurydice.eacea.ec.europa.eu/publications/digital-education-school-europe-2026-bridging-gaps-access-teaching-and-learning\" target=\"_blank\" rel=\"noopener\">Digital education at school in Europe 2026: Bridging gaps in access, teaching and learning</a> covers 38 education systems.</p><ul><li>Digital competence is taught in lower-secondary education in most systems, and about three-quarters have a dedicated subject for it.</li><li>Students from disadvantaged backgrounds can have fewer chances to build digital skills, at school and at home.</li><li>Nearly two-thirds of education systems now address AI in a national strategy, guidance or policy framework, while access to advanced AI tools in schools remains uneven.</li><li>Teacher education increasingly includes digital competences, with gaps remaining in areas such as personalised learning and the use of AI.</li></ul><p>TRIAD's classroom pilots in six countries will add to this evidence over the coming years.</p>",
+  "image_tall": true,
+  "tags": [
+    "Policy",
+    "Research"
+  ]
+}

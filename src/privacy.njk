@@ -1,0 +1,26 @@
+---
+layout: base.njk
+permalink: /privacy/
+key: privacy
+pageTitle: Privacy notice
+---
+{%- import "macros.njk" as m -%}
+{%- set p = db.privacy -%}
+<section class="page-head">
+  <div class="wrap">
+  {{ m.heading(p.title, "Privacy", p.standfirst, 1) }}
+  </div>
+  {% waves "waves" %}
+</section>
+<section class="wrap">
+  <div class="prose">
+    {%- set counting = db.site.goatcounter_code %}
+    {%- for s in p.sections %}
+    {%- if not s.when or (s.when == 'counter' and counting) or (s.when == 'nocounter' and not counting) %}
+    <h2>{{ s.title }}</h2>
+    {{ s.text | paras | safe }}
+    {%- endif %}
+    {%- endfor %}
+    <p class="footnote">Last updated: {{ p.updated | niceDate }}</p>
+  </div>
+</section>
