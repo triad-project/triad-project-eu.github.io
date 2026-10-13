@@ -15,13 +15,13 @@
 {%- endif %}
 <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-<link rel="preload" href="/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/serif.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/sans.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="stylesheet" href="/styles.css" />
 <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<div class="band" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="brand" href="/" aria-label="TRIAD, home">{% include "logo.svg" %}</a>
@@ -29,16 +29,17 @@
       {%- for n in nav %}
       <a href="{{ n.url }}"{% if key == n.key %} aria-current="page"{% endif %}>{{ n.label }}</a>
       {%- endfor %}
-      <a class="nav-cta" href="/#contact">Contact</a>
+      <a href="/#contact">Contact</a>
     </nav>
   </div>
 </header>
 
-<main id="main">
+<main id="main" class="sheet">
 {{ content | safe }}
 </main>
 
 <footer class="site-footer">
+  <div class="zigzag" aria-hidden="true"></div>
   <div class="wrap">
     <div class="funding">
       <img src="/images/eu-emblem-horizontal-pos-tight.png" alt="Funded by the European Union" width="262" height="56" />
@@ -61,54 +62,14 @@
   </div>
 </footer>
 <script>
-  // Motion: graphics animate once when they scroll into view, numbers count up, the header gets a shadow.
+  // Things drawn in pen or highlighter appear once, when they scroll into view.
   (function () {
-    var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var header = document.querySelector(".site-header");
-    addEventListener("scroll", function () { header.classList.toggle("scrolled", scrollY > 8); }, { passive: true });
-
-    function count(el) {
-      var end = parseInt(el.textContent, 10);
-      if (still || isNaN(end) || String(end) !== el.textContent.trim()) return;
-      var t0 = performance.now();
-      (function step(t) {
-        var p = Math.min((t - t0) / 1100, 1);
-        el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3)));
-        if (p < 1) requestAnimationFrame(step);
-      })(t0);
-    }
+    var els = document.querySelectorAll("[data-anim]");
+    if (!("IntersectionObserver" in window)) { els.forEach(function (el) { el.classList.add("in"); }); return; }
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (!en.isIntersecting) return;
-        en.target.classList.add("in");
-        en.target.querySelectorAll("[data-count]").forEach(count);
-        io.unobserve(en.target);
-      });
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } });
     }, { threshold: 0.12 });
-    document.querySelectorAll("[data-anim]").forEach(function (el) { io.observe(el); });
-
-    // Home: the three strands. Pointing at, tapping or tabbing to one shows its area; until then they take turns.
-    var triad = document.getElementById("triad");
-    if (triad) {
-      var paths = triad.querySelectorAll("path"), keys = triad.querySelectorAll(".triad-keys button"), says = triad.querySelectorAll(".triad-say > div"), timer;
-      var set = function (k) {
-        triad.classList.toggle("hl", k !== null);
-        paths.forEach(function (p, i) { p.classList.toggle("on", i === k); });
-        keys.forEach(function (b, i) { b.classList.toggle("on", i === k); });
-        says.forEach(function (d, i) { d.classList.toggle("on", i === (k === null ? 0 : k + 1)); });
-      };
-      var stop = function () { clearInterval(timer); };
-      [paths, keys].forEach(function (list) {
-        list.forEach(function (el) {
-          var k = Number(el.dataset.k);
-          el.addEventListener("mouseenter", function () { stop(); set(k); });
-          el.addEventListener("focus", function () { stop(); set(k); });
-          el.addEventListener("click", function () { stop(); set(k); });
-        });
-      });
-      triad.addEventListener("mouseleave", function () { set(null); });
-      if (!still) { var n = -1; timer = setInterval(function () { n = (n + 1) % 4; set(n === 3 ? null : n); }, 2600); }
-    }
+    els.forEach(function (el) { io.observe(el); });
   })();
 </script>
 </body>

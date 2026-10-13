@@ -130,9 +130,12 @@ content:
           - { name: short, label: Word in the diagram, type: string }
           - { name: title, label: Title, type: string }
           - { name: detail, label: Detail, type: string }
-      - { name: classroom_eyebrow, label: Classroom section - line above the heading, type: string }
-      - { name: classroom_title, label: Classroom section - heading, type: string }
-      - { name: classroom_text, label: Classroom section - text, type: text }
+      - { name: headline_mark, label: Word in the headline that is circled in green pen, type: string }
+      - { name: find, label: "The 'Find' line under the headline", type: string }
+      - { name: figure_caption, label: Caption under the triangle figure, type: string }
+      - { name: problem_title, label: Heading of the four challenges, type: string }
+      - { name: learners_title, label: Learners section - heading, type: string }
+      - { name: learners_text, label: Learners section - text, type: text }
       - { name: newsletter_title, label: Newsletter heading, type: string }
       - { name: newsletter_text, label: Newsletter text, type: text }
       - { name: newsletter_consent, label: Newsletter consent wording, type: text }

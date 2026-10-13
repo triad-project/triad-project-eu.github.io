@@ -6,8 +6,6 @@ pageTitle: Outputs
 ---
 {%- import "macros.njk" as m -%}
 {%- set o = db.outputs -%}
-{%- set done = o.items | withUrl -%}
-{%- set planned = o.items | withoutUrl -%}
 <section class="page-head wrap">
   {{ m.heading(o.title, "Results", o.standfirst, 1) }}
 </section>
@@ -15,36 +13,23 @@ pageTitle: Outputs
 {%- if o.other.length %}
 <section class="wrap section-tight">
   <h2 class="h-sub">{{ o.other_title }}</h2>
-  <ul class="doc-list">
+  <ul class="checklist" data-anim>
     {%- for d in o.other %}
-    <li><div><a href="{{ d.url }}" target="_blank" rel="noopener">{{ d.title }}</a>{% if d.note %}<span class="meta">{{ d.note }}</span>{% endif %}</div>{% if d.kind %}<span class="tag">{{ d.kind }}</span>{% endif %}</li>
-    {%- endfor %}
-  </ul>
-</section>
-{%- endif %}
-
-{%- if done.length %}
-<section class="wrap section-tight">
-  <h2 class="h-sub">Published deliverables</h2>
-  <ul class="doc-list">
-    {%- for d in done %}
-    <li><div><a href="{{ d.url }}" target="_blank" rel="noopener"><strong>{{ d.id }}</strong> {{ d.title }}</a><span class="meta">{{ d.wp }} · Lead: {{ d.lead }}</span></div><span class="tag tag-done">Published</span></li>
+    <li>{{ m.box(true) }}<div><a href="{{ d.url }}" target="_blank" rel="noopener">{{ d.title }}</a>{% if d.note %}<span class="meta">{{ d.note }}</span>{% endif %}</div>{% if d.kind %}<span class="stamp">{{ d.kind }}</span>{% endif %}</li>
     {%- endfor %}
   </ul>
 </section>
 {%- endif %}
 
 <section class="wrap section-tight">
-  <h2 class="h-sub">Planned public deliverables</h2>
-  <div class="table-scroll">
-    <table class="table">
-      <thead><tr><th>No</th><th>Deliverable</th><th>Work package</th><th>Lead</th><th>Planned</th></tr></thead>
-      <tbody>
-        {%- for d in planned %}
-        <tr><td><strong>{{ d.id }}</strong></td><td>{{ d.title }}</td><td>{{ d.wp }}</td><td>{{ d.lead }}</td><td class="nowrap">{{ d.month | projectMonth }}</td></tr>
-        {%- endfor %}
-      </tbody>
-    </table>
-  </div>
-  <p class="note">{{ o.note }}</p>
+  <h2 class="h-sub">Public deliverables</h2>
+  <ul class="checklist" data-anim>
+    {%- for d in o.items %}
+    <li{% if d.url %} class="done"{% endif %}>{{ m.box(d.url) }}
+      <div>{% if d.url %}<a href="{{ d.url }}" target="_blank" rel="noopener"><b>{{ d.id }}</b> {{ d.title }}</a>{% else %}<b>{{ d.id }}</b> {{ d.title }}{% endif %}<span class="meta">{{ d.wp }} · Lead: {{ d.lead }}</span></div>
+      <span class="stamp">{% if d.url %}Published{% else %}{{ d.month | projectMonth }}{% endif %}</span>
+    </li>
+    {%- endfor %}
+  </ul>
+  <p class="footnote">{{ o.note }}</p>
 </section>

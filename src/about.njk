@@ -15,60 +15,49 @@ pageTitle: About the project
   <div class="prose">
     {{ a.context | paras | safe }}
   </div>
-  <aside class="card record">
-    <div class="band band-card" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-    <div class="record-body">
-      <p class="label">Project record</p>
-      <dl>
-        <div><dt>Full title</dt><dd>{{ s.full_title }}</dd></div>
-        <div><dt>Grant Agreement</dt><dd>{{ s.grant }}</dd></div>
-        <div><dt>Call</dt><dd>{{ s.call }}</dd></div>
-        <div><dt>Topic</dt><dd>{{ s.topic }}</dd></div>
-        <div><dt>Type of action</dt><dd>{{ s.action_type }}</dd></div>
-        <div><dt>Duration</dt><dd>{{ s.months }} months, {{ s.start | niceDate }} to {{ s.end | niceDate }}</dd></div>
-        <div><dt>Coordinator</dt><dd>{{ s.coordinator }}</dd></div>
-        <div><dt>Granting authority</dt><dd>{{ s.funder }}</dd></div>
-      </dl>
-    </div>
+  <aside class="record">
+    <p class="label">Project record</p>
+    <dl>
+      <div><dt>Full title</dt><dd>{{ s.full_title }}</dd></div>
+      <div><dt>Grant Agreement</dt><dd>{{ s.grant }}</dd></div>
+      <div><dt>Call</dt><dd>{{ s.call }}</dd></div>
+      <div><dt>Topic</dt><dd>{{ s.topic }}</dd></div>
+      <div><dt>Type of action</dt><dd>{{ s.action_type }}</dd></div>
+      <div><dt>Duration</dt><dd>{{ s.months }} months, {{ s.start | niceDate }} to {{ s.end | niceDate }}</dd></div>
+      <div><dt>Coordinator</dt><dd>{{ s.coordinator }}</dd></div>
+      <div><dt>Granting authority</dt><dd>{{ s.funder }}</dd></div>
+    </dl>
   </aside>
 </section>
 
+<div class="zigzag" aria-hidden="true"></div>
+
 <section class="section wrap">
-  {{ m.heading(a.challenges_title, "Why") }}
-  <div class="grid grid-4">
+  {{ m.heading(a.challenges_title, "1 · The problem") }}
+  <ol class="problems" data-anim>
     {%- for c in a.challenges %}
-    <div class="card accent-{{ loop.index }}">
-      <div class="card-accent" aria-hidden="true"></div>
-      <div class="card-body"><p class="num">{{ loop.index }}</p><h3>{{ c.title }}</h3><p>{{ c.text }}</p></div>
-    </div>
+    <li><h3><span>{{ c.title }}</span></h3><p>{{ c.text }}</p></li>
     {%- endfor %}
-  </div>
-</section>
-
-<section class="section wrap grid grid-2">
-  <div>
-    {{ m.heading(a.approach_title, "How") }}
-    <div class="prose">{{ a.approach | paras | safe }}</div>
-  </div>
-  <div>
-    {{ m.heading(a.results_title, "What") }}
-    <div class="prose">{{ a.results | paras | safe }}</div>
-  </div>
-</section>
-
-<section class="section section-blue">
-  <div class="wrap">
-    {{ m.heading(a.path_title, "The path") }}
-    <ol class="path" data-anim>
-      {%- for p in a.path %}
-      <li style="--i: {{ loop.index0 }}"><span class="path-n">{{ loop.index }}</span><p class="label">{{ p.months }}</p><h3>{{ p.title }}</h3><p>{{ p.text }}</p></li>
-      {%- endfor %}
-    </ol>
-  </div>
+  </ol>
 </section>
 
 <section class="section wrap">
-  {{ m.heading(a.workplan_title, "Work plan") }}
+  {{ m.heading(a.approach_title, "2 · The method") }}
+  <div class="prose">{{ a.approach | paras | safe }}</div>
+  <ol class="steps" data-anim>
+    {%- for p in a.path %}
+    <li><span class="stamp">{{ p.months }}</span><h3>{{ p.title }}</h3><p>{{ p.text }}</p></li>
+    {%- endfor %}
+  </ol>
+</section>
+
+<section class="section wrap">
+  {{ m.heading(a.results_title, "3 · The result") }}
+  <div class="prose">{{ a.results | paras | safe }}</div>
+</section>
+
+<section class="section wrap">
+  {{ m.heading(a.workplan_title, "4 · The timetable") }}
   <div class="timeline" data-anim>
     <div class="tl-row tl-head" aria-hidden="true">
       <span></span>
@@ -81,12 +70,12 @@ pageTitle: About the project
     {%- for wp in db.workplan %}
     <div class="tl-row">
       <div class="tl-label">
-        <strong>{{ wp.id }}</strong> {{ wp.title }}
-        <span class="meta">Lead: {{ wp.lead }} · M{{ wp.start }}-M{{ wp.end }}</span>
+        <b>{{ wp.id }}</b> {{ wp.title }}
+        <span class="stamp">Lead: {{ wp.lead }} · M{{ wp.start }}-M{{ wp.end }}</span>
       </div>
-      <div class="tl-track" aria-hidden="true"><span class="tl-bar c{{ loop.index0 % 4 }}" style="--i: {{ loop.index0 }}; left: {{ (wp.start - 1) | pct }}%; width: {{ (wp.end - wp.start + 1) | pct }}%"></span></div>
+      <div class="tl-track" aria-hidden="true"><span class="tl-bar c{{ loop.index0 % 3 }}" style="--i: {{ loop.index0 }}; left: {{ (wp.start - 1) | pct }}%; width: {{ (wp.end - wp.start + 1) | pct }}%"></span></div>
     </div>
     {%- endfor %}
   </div>
-  <p class="note">{{ a.workplan_note }}</p>
+  <p class="footnote">{{ a.workplan_note }}</p>
 </section>

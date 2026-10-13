@@ -9,12 +9,12 @@ pageTitle: Consortium
   {{ m.heading(db.partners.title, "Who is in TRIAD", db.partners.standfirst, 1) }}
 </section>
 <section class="wrap">
-  <ul class="partner-grid">
+  <ul class="partners">
     {%- for p in db.partners.items %}
     <li>
       <div class="partner-logo"><img src="{{ p.logo }}" alt="" loading="lazy" /></div>
+      <p class="stamp{% if p.role == 'Coordinator' %} pen{% endif %}">{% if loop.index < 10 %}0{% endif %}{{ loop.index }} · {{ p.role }} · {{ p.acronym }}</p>
       <p class="partner-name">{% if p.url %}<a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.name }}</a>{% else %}{{ p.name }}{% endif %}</p>
-      <p class="label{% if p.role == 'Coordinator' %} label-brand{% endif %}">{{ p.role }} · {{ p.acronym }}</p>
       <p class="meta">{{ p.city }}, {{ p.country }}</p>
     </li>
     {%- endfor %}

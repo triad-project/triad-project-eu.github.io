@@ -12,9 +12,10 @@ eleventyComputed:
   ogImage: "{{ item.image }}"
 ---
 <article class="post wrap">
-  <p><a class="back" href="/news/">← News</a></p>
-  <p class="meta">{{ item.date | niceDate }}{% if types[item.type] %} · {{ types[item.type] }}{% endif %}{% if item.partner %} · {{ item.partner }}{% endif %}{% if item.draft %} · <span class="draft">Draft, not published</span>{% endif %}</p>
+  <p><a class="link back" href="/news/">News</a></p>
+  <p class="stamp">{{ item.date | stamp }}{% if types[item.type] %} · {{ types[item.type] }}{% endif %}{% if item.partner %} · {{ item.partner }}{% endif %}</p>
   <h1>{{ item.title }}</h1>
+  {% if item.draft %}<p class="hand draft">Draft, not published</p>{% endif %}
   {% if item.summary %}<p class="lead">{{ item.summary }}</p>{% endif %}
   {%- if item.image %}
   <figure>
@@ -23,5 +24,5 @@ eleventyComputed:
   </figure>
   {%- endif %}
   <div class="prose">{{ item.body | safe }}</div>
-  {% if item.link %}<p class="actions"><a class="btn btn-ghost" href="{{ item.link }}" target="_blank" rel="noopener">Read more →</a></p>{% endif %}
+  {% if item.link %}<p class="actions"><a class="btn" href="{{ item.link }}" target="_blank" rel="noopener">Read more</a></p>{% endif %}
 </article>

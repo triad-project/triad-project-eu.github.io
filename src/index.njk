@@ -5,91 +5,105 @@ key: home
 ---
 {%- import "macros.njk" as m -%}
 {%- set h = db.home -%}
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <p class="eyebrow">{{ h.eyebrow }}</p>
-      <h1>{{ h.headline }}</h1>
-      <p class="lead">{{ h.standfirst }}</p>
-      <p class="actions">
-        <a class="btn" href="/about/">About the project →</a>
-        <a class="btn btn-ghost" href="/news/">News</a>
-      </p>
-    </div>
-    <div class="triad" id="triad">
-      <svg viewBox="0 0 520 430" role="group" aria-label="{{ h.framework_title }}">
-        {%- set shapes = ["M200 40 L350 300 L50 300 Z", "M320 120 L470 380 L170 380 Z", "M260 195 L345 340 L175 340 Z"] %}
-        {%- for x in h.areas %}
-        <path pathLength="1" class="s{{ loop.index }}" data-k="{{ loop.index0 }}" d="{{ shapes[loop.index0] }}" tabindex="0" role="button" aria-label="{{ x.title }}" />
-        {%- endfor %}
-      </svg>
-      <div class="triad-say" aria-live="polite">
-        <div class="on"><h2>{{ h.framework_title }}</h2><p>{{ h.framework_text }}</p></div>
-        {%- for x in h.areas %}
-        <div class="k{{ loop.index }}"><h2>{{ x.title }}</h2><p>{{ x.detail }}</p></div>
-        {%- endfor %}
-      </div>
-      <p class="triad-keys">
-        {%- for x in h.areas %}
-        <button type="button" class="k{{ loop.index }}" data-k="{{ loop.index0 }}"><i></i>{{ x.short }}</button>
-        {%- endfor %}
-      </p>
-    </div>
-  </div>
-  <div class="wrap">
-    <dl class="stats" data-anim>
-      {%- for f in h.figures %}
-      <div><dd data-count>{{ f.value }}</dd><dt>{{ f.label }}</dt></div>
-      {%- endfor %}
+<section class="hero wrap">
+  <div class="hero-text">
+    <p class="label">{{ h.eyebrow }}</p>
+    <h1>{{ h.headline | circle(h.headline_mark) | safe }}</h1>
+    <p class="lead">{{ h.standfirst }}</p>
+    <dl class="given">
+      <div><dt>{{ h.given_label }}</dt><dd>{% for f in h.figures %}<span><b>{{ f.value }}</b> {{ f.label | lower }}</span>{% endfor %}</dd></div>
+      <div><dt>{{ h.find_label }}</dt><dd class="find">{{ h.find }}</dd></div>
     </dl>
+    <p class="actions">
+      <a class="btn" href="/about/">About the project</a>
+      <a class="link" href="/news/">Read the news</a>
+    </p>
   </div>
+
+  <figure class="fig" id="fig">
+    <svg viewBox="0 0 520 470" role="group" aria-label="{{ h.framework_title }}">
+      <g class="pencil">
+        <path pathLength="1" style="--d:0s" d="M40 382 L480 382" />
+        <path pathLength="1" style="--d:.5s" d="M214.9 48.2 A360 360 0 0 1 301.6 98.3" />
+        <path pathLength="1" style="--d:.8s" d="M305.1 48.2 A360 360 0 0 0 218.4 98.3" />
+      </g>
+      <g class="ink">
+        <path pathLength="1" style="--d:1.2s" d="M80 382 L260 70" />
+        <path pathLength="1" style="--d:1.6s" d="M260 70 L440 382" />
+        <path pathLength="1" style="--d:2s" d="M80 382 L440 382" />
+        <path class="tick" pathLength="1" style="--d:2.4s" d="M160 222 L180 234 M360 222 L340 234 M260 370 L260 394" />
+      </g>
+      <g class="pencil dashed fade" style="--d:2.7s">
+        <path d="M260 70 L260 382" /><path d="M80 382 L350 226" /><path d="M440 382 L170 226" />
+      </g>
+      <g class="fade" style="--d:3s">
+        <circle class="centre" data-k="3" cx="260" cy="278" r="11" tabindex="0" role="button" aria-label="{{ h.center.title }}" />
+        <path class="pen-line" d="M300 322 C296 304 286 294 274 288" />
+        <text class="hand" x="282" y="346">{{ h.center.short | lower }}</text>
+      </g>
+      {%- set pts = [[260, 70, 260, 34, "middle"], [80, 382, 62, 424, "start"], [440, 382, 458, 424, "end"]] %}
+      {%- for x in h.areas %}
+      {%- set p = pts[loop.index0] %}
+      <g class="vertex fade" style="--d:{{ 1.4 + loop.index0 * 0.4 }}s" data-k="{{ loop.index0 }}" tabindex="0" role="button" aria-label="{{ x.title }}">
+        <circle class="hit" cx="{{ p[0] }}" cy="{{ p[1] }}" r="44" />
+        <circle class="dot" cx="{{ p[0] }}" cy="{{ p[1] }}" r="8" />
+        <text x="{{ p[2] }}" y="{{ p[3] }}" text-anchor="{{ p[4] }}">{{ x.short }}</text>
+      </g>
+      {%- endfor %}
+    </svg>
+    <figcaption>
+      <span class="label">Fig. 1</span>
+      <span class="cap on">{{ h.figure_caption }}</span>
+      {%- for x in h.areas %}
+      <span class="cap"><b>{{ x.title }}.</b> {{ x.detail }}.</span>
+      {%- endfor %}
+      <span class="cap"><b>{{ h.center.title }}.</b> {{ h.center.detail }}.</span>
+    </figcaption>
+  </figure>
 </section>
 
-<section class="section-blue classroom">
-  <div class="wrap classroom-grid">
-    <div>
-      <p class="eyebrow">{{ h.classroom_eyebrow }}</p>
-      <h2>{{ h.classroom_title }}</h2>
-      <p>{{ h.classroom_text }}</p>
-      <p class="actions"><a class="btn" href="/about/">How the project works →</a></p>
-    </div>
-    {% include "classroom.svg" %}
+<div class="zigzag" aria-hidden="true"></div>
+
+<section class="section wrap">
+  {{ m.heading(h.problem_title, "1 · The problem") }}
+  <ol class="problems" data-anim>
+    {%- for c in db.about.challenges %}
+    <li><h3><span>{{ c.title }}</span></h3><p>{{ c.text }}</p></li>
+    {%- endfor %}
+  </ol>
+  <p class="more"><a class="link" href="/about/">How the project works</a></p>
+</section>
+
+<section class="section wrap learners" data-anim>
+  <div>
+    {{ m.heading(h.learners_title, "2 · The test") }}
+    <p class="prose-p">{{ h.learners_text }}</p>
+    <p class="hand aside">each dot = one learner</p>
   </div>
+  <div class="dots" role="img" aria-label="A field of {{ h.learners_count }} dots, one per learner" style="--n: {{ h.learners_count }}"></div>
 </section>
 
 {%- if db.news.length %}
 <section class="section wrap">
-  {{ m.heading("Latest news", "News") }}
-  <div class="grid grid-3">
+  {{ m.heading("Latest news", "3 · Notes") }}
+  <div class="notes">
     {%- for item in db.news | take(3) %}
     {{ m.newsCard(item, types) }}
     {%- endfor %}
   </div>
-  {% if db.news.length > 3 %}<p class="more"><a href="/news/">All news →</a></p>{% endif %}
+  {% if db.news.length > 3 %}<p class="more"><a class="link" href="/news/">All news</a></p>{% endif %}
 </section>
 {%- endif %}
 
-<section class="section wrap">
-  {{ m.heading(db.about.challenges_title, "The project") }}
-  <div class="grid grid-4">
-    {%- for c in db.about.challenges %}
-    <div class="card accent-{{ loop.index }}">
-      <div class="card-accent" aria-hidden="true"></div>
-      <div class="card-body"><h3>{{ c.title }}</h3><p>{{ c.text }}</p></div>
-    </div>
-    {%- endfor %}
-  </div>
-  <p class="more"><a href="/about/">How the project works →</a></p>
-</section>
-
-<section class="section section-grey" id="contact">
-  <div class="wrap contact-grid">
+<section class="section wrap" id="contact">
+  <div class="slip">
+    <span class="scissors" aria-hidden="true">✂</span>
     <div>
-      {{ m.heading(h.newsletter_title, "Newsletter") }}
+      {{ m.heading(h.newsletter_title, "4 · Sign-up slip") }}
       <p class="prose-p">{{ h.newsletter_text }}</p>
       <p class="prose-p">{{ h.contact_text }} <a href="mailto:{{ db.site.email }}">{{ db.site.email }}</a></p>
     </div>
-    <form class="card signup" id="signup" action="https://api.web3forms.com/submit" method="post" data-email="{{ db.site.email }}">
+    <form class="signup" id="signup" action="https://api.web3forms.com/submit" method="post" data-email="{{ db.site.email }}">
       <input type="hidden" name="access_key" value="{{ db.site.web3forms_key }}" />
       <input type="hidden" name="subject" value="TRIAD newsletter sign-up" />
       <input type="hidden" name="from_name" value="TRIAD website" />
@@ -97,25 +111,42 @@ key: home
       <label for="signup-email" class="label">Email address</label>
       <input id="signup-email" type="email" name="email" placeholder="you@school.eu" autocomplete="email" required />
       <label class="consent"><input type="checkbox" name="consent" value="yes" required /><span>{{ h.newsletter_consent }}</span></label>
-      <button class="btn" type="submit">Sign up for the newsletter →</button>
-      <p class="signup-msg" role="status" hidden></p>
+      <button class="btn" type="submit">Sign up for the newsletter</button>
+      <p class="signup-msg hand" role="status" hidden></p>
     </form>
   </div>
 </section>
 
 <section class="section wrap">
-  {{ m.heading("Who is in TRIAD", "Consortium", db.partners.standfirst) }}
-  <ul class="logo-strip">
+  {{ m.heading("Who is in TRIAD", "5 · The group", db.partners.standfirst) }}
+  <ul class="stickers">
     {%- for p in db.partners.items %}
     <li><img src="{{ p.logo }}" alt="{{ p.name }}" loading="lazy" /></li>
     {%- endfor %}
   </ul>
-  <p class="more"><a href="/consortium/">Meet the consortium →</a></p>
+  <p class="more"><a class="link" href="/consortium/">Meet the consortium</a></p>
 </section>
 
 <script>
-  // Newsletter sign-up: sent in the background so the visitor stays on the page.
   (function () {
+    // Fig. 1: pointing at, tapping or tabbing to a corner (or the centre) shows what it stands for.
+    var fig = document.getElementById("fig");
+    if (fig) {
+      var caps = fig.querySelectorAll(".cap"), hot = fig.querySelectorAll("[data-k]");
+      var set = function (k) {
+        caps.forEach(function (c, i) { c.classList.toggle("on", i === (k === null ? 0 : k + 1)); });
+        hot.forEach(function (g) { g.classList.toggle("on", Number(g.dataset.k) === k); });
+      };
+      hot.forEach(function (g) {
+        var k = Number(g.dataset.k);
+        g.addEventListener("mouseenter", function () { set(k); });
+        g.addEventListener("focus", function () { set(k); });
+        g.addEventListener("click", function () { set(k); });
+        g.addEventListener("mouseleave", function () { set(null); });
+        g.addEventListener("blur", function () { set(null); });
+      });
+    }
+    // Newsletter sign-up: sent in the background so the visitor stays on the page.
     var form = document.getElementById("signup");
     if (!form) return;
     var msg = form.querySelector(".signup-msg");
