@@ -47,13 +47,14 @@
   "classroom_eyebrow": "For secondary schools and VET",
   "classroom_title": "In classrooms, with learners aged 12 to 18",
   "classroom_text": "The project focuses on learners aged 12 to 18 in secondary schools and vocational education and training, where competences must be consolidated and inequality risks peak. Classroom scenarios are designed with teachers, school leaders and students, then tested in pilots across Europe.",
-  "headline_mark": "not",
+  "headline_mark": "not a trade-off.",
   "given_label": "Given",
-  "find_label": "Find",
+  "find_label": "What we want to find out",
   "find": "When AI genuinely enhances learning rather than replacing it.",
   "figure_caption": "Three areas of competence held in balance, with learner wellbeing at the centre.",
-  "problem_title": "The problem, in four parts",
-  "learners_title": "About 1,000 learners, six countries",
+  "problem_title": "What is the problem?",
+  "learners_title": "How is it tested?",
   "learners_text": "One dot per learner. The EU-wide classroom pilots compare classes that use the AI-enriched scenarios with classes that do not, before and after, in Lithuania, Germany, Croatia, Finland, Italy and Greece.",
-  "learners_count": 1000
+  "learners_count": 1000,
+  "learners_lead": "With about 1,000 learners in six countries."
 }

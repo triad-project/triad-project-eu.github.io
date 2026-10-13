@@ -130,11 +130,11 @@ content:
           - { name: short, label: Word in the diagram, type: string }
           - { name: title, label: Title, type: string }
           - { name: detail, label: Detail, type: string }
-      - { name: headline_mark, label: Word in the headline that is circled in green pen, type: string }
-      - { name: find, label: "The 'Find' line under the headline", type: string }
-      - { name: figure_caption, label: Caption under the triangle figure, type: string }
+      - { name: headline_mark, label: Part of the headline shown on a block of colour, type: string }
+      - { name: find, label: The statement on the pink band, type: string }
       - { name: problem_title, label: Heading of the four challenges, type: string }
       - { name: learners_title, label: Learners section - heading, type: string }
+      - { name: learners_lead, label: Learners section - large line, type: string }
       - { name: learners_text, label: Learners section - text, type: text }
       - { name: newsletter_title, label: Newsletter heading, type: string }
       - { name: newsletter_text, label: Newsletter text, type: text }

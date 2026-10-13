@@ -30,34 +30,36 @@ pageTitle: About the project
   </aside>
 </section>
 
-<div class="zigzag" aria-hidden="true"></div>
-
-<section class="section wrap">
-  {{ m.heading(a.challenges_title, "1 · The problem") }}
-  <ol class="problems" data-anim>
-    {%- for c in a.challenges %}
-    <li><h3><span>{{ c.title }}</span></h3><p>{{ c.text }}</p></li>
-    {%- endfor %}
-  </ol>
+<section class="band band-ink teeth">
+  <div class="wrap">
+    {{ m.heading(a.challenges_title, "01 ▲ The problem") }}
+    <ol class="rows">
+      {%- for c in a.challenges %}
+      <li><h3>{{ c.title }}</h3><p>{{ c.text }}</p></li>
+      {%- endfor %}
+    </ol>
+  </div>
 </section>
 
 <section class="section wrap">
-  {{ m.heading(a.approach_title, "2 · The method") }}
+  {{ m.heading(a.approach_title, "02 ▲ The method") }}
   <div class="prose">{{ a.approach | paras | safe }}</div>
-  <ol class="steps" data-anim>
+  <ol class="steps">
     {%- for p in a.path %}
-    <li><span class="stamp">{{ p.months }}</span><h3>{{ p.title }}</h3><p>{{ p.text }}</p></li>
+    <li><p class="label">{{ p.months }}</p><h3>{{ p.title }}</h3><p>{{ p.text }}</p></li>
     {%- endfor %}
   </ol>
 </section>
 
-<section class="section wrap">
-  {{ m.heading(a.results_title, "3 · The result") }}
-  <div class="prose">{{ a.results | paras | safe }}</div>
+<section class="band band-pink">
+  <div class="wrap">
+    <p class="label">03 ▲ {{ a.results_title }}</p>
+    <p class="statement small">{{ a.results }}</p>
+  </div>
 </section>
 
 <section class="section wrap">
-  {{ m.heading(a.workplan_title, "4 · The timetable") }}
+  {{ m.heading(a.workplan_title, "04 ▲ The work plan") }}
   <div class="timeline" data-anim>
     <div class="tl-row tl-head" aria-hidden="true">
       <span></span>
@@ -71,7 +73,7 @@ pageTitle: About the project
     <div class="tl-row">
       <div class="tl-label">
         <b>{{ wp.id }}</b> {{ wp.title }}
-        <span class="stamp">Lead: {{ wp.lead }} · M{{ wp.start }}-M{{ wp.end }}</span>
+        <span class="label">Lead: {{ wp.lead }} ▲ M{{ wp.start }}-M{{ wp.end }}</span>
       </div>
       <div class="tl-track" aria-hidden="true"><span class="tl-bar c{{ loop.index0 % 3 }}" style="--i: {{ loop.index0 }}; left: {{ (wp.start - 1) | pct }}%; width: {{ (wp.end - wp.start + 1) | pct }}%"></span></div>
     </div>

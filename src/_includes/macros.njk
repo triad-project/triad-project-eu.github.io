@@ -1,4 +1,3 @@
-{# A numbered section heading, like an exercise in a workbook. #}
 {% macro heading(title, label, standfirst, level) %}
 <header class="head">
   {% if label %}<p class="label">{{ label }}</p>{% endif %}
@@ -8,14 +7,11 @@
 {% endmacro %}
 
 {% macro newsCard(item, types) %}
-<article class="note">
-  <p class="stamp">{{ item.date | stamp }}{% if types[item.type] %} · {{ types[item.type] }}{% endif %}</p>
-  {% if item.image %}<a class="note-img" href="/news/{{ item.slug }}/" tabindex="-1" aria-hidden="true"><img src="{{ item.image }}" alt="" loading="lazy" /></a>{% endif %}
+<article class="card">
+  {% if item.image %}<a class="card-img" href="/news/{{ item.slug }}/" tabindex="-1" aria-hidden="true"><img src="{{ item.image }}" alt="" loading="lazy" /></a>{% endif %}
+  <p class="label">{{ item.date | stamp }}{% if types[item.type] %} ▲ {{ types[item.type] }}{% endif %}</p>
   <h3><a href="/news/{{ item.slug }}/">{{ item.title }}</a></h3>
   {% if item.summary %}<p>{{ item.summary }}</p>{% endif %}
-  {% if item.draft %}<p class="hand draft">Draft, not published</p>{% endif %}
+  {% if item.draft %}<p class="tag tag-draft">Draft, not published</p>{% endif %}
 </article>
 {% endmacro %}
-
-{# A tick or an empty box, drawn in pen. #}
-{% macro box(done) %}<svg class="box{% if done %} done{% endif %}" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="16" height="16" rx="1.5"/>{% if done %}<path pathLength="1" d="M6 12 L11 17 L22 3"/>{% endif %}</svg>{% endmacro %}

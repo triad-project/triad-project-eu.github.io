@@ -6,14 +6,14 @@ pageTitle: Consortium
 ---
 {%- import "macros.njk" as m -%}
 <section class="page-head wrap">
-  {{ m.heading(db.partners.title, "Who is in TRIAD", db.partners.standfirst, 1) }}
+  {{ m.heading(db.partners.title, "Who is in TRIAD?", db.partners.standfirst, 1) }}
 </section>
 <section class="wrap">
   <ul class="partners">
     {%- for p in db.partners.items %}
     <li>
       <div class="partner-logo"><img src="{{ p.logo }}" alt="" loading="lazy" /></div>
-      <p class="stamp{% if p.role == 'Coordinator' %} pen{% endif %}">{% if loop.index < 10 %}0{% endif %}{{ loop.index }} · {{ p.role }} · {{ p.acronym }}</p>
+      <p class="label"><span class="tag{% if p.role == 'Coordinator' %} tag-pink{% endif %}">{{ p.role }}</span> {{ p.acronym }}</p>
       <p class="partner-name">{% if p.url %}<a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.name }}</a>{% else %}{{ p.name }}{% endif %}</p>
       <p class="meta">{{ p.city }}, {{ p.country }}</p>
     </li>

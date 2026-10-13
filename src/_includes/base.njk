@@ -15,8 +15,7 @@
 {%- endif %}
 <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-<link rel="preload" href="/fonts/serif.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="preload" href="/fonts/sans.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/display.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="stylesheet" href="/styles.css" />
 <script>document.documentElement.classList.add("js");</script>
 </head>
@@ -29,17 +28,16 @@
       {%- for n in nav %}
       <a href="{{ n.url }}"{% if key == n.key %} aria-current="page"{% endif %}>{{ n.label }}</a>
       {%- endfor %}
-      <a href="/#contact">Contact</a>
+      <a class="nav-cta" href="/#contact">Contact</a>
     </nav>
   </div>
 </header>
 
-<main id="main" class="sheet">
+<main id="main">
 {{ content | safe }}
 </main>
 
 <footer class="site-footer">
-  <div class="zigzag" aria-hidden="true"></div>
   <div class="wrap">
     <div class="funding">
       <img src="/images/eu-emblem-horizontal-pos-tight.png" alt="Funded by the European Union" width="262" height="56" />
@@ -58,11 +56,11 @@
         {%- endif %}{% endfor %}
       </div>
     </div>
-    <p class="footer-base">triad-project.eu · Grant Agreement {{ site.grant }}</p>
   </div>
+  <div class="footer-base"><div class="wrap">triad-project.eu ▲ Grant Agreement {{ site.grant }}</div></div>
 </footer>
 <script>
-  // Things drawn in pen or highlighter appear once, when they scroll into view.
+  // Blocks marked data-anim get the class "in" once, when they scroll into view.
   (function () {
     var els = document.querySelectorAll("[data-anim]");
     if (!("IntersectionObserver" in window)) { els.forEach(function (el) { el.classList.add("in"); }); return; }

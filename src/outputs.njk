@@ -13,9 +13,9 @@ pageTitle: Outputs
 {%- if o.other.length %}
 <section class="wrap section-tight">
   <h2 class="h-sub">{{ o.other_title }}</h2>
-  <ul class="checklist" data-anim>
+  <ul class="list">
     {%- for d in o.other %}
-    <li>{{ m.box(true) }}<div><a href="{{ d.url }}" target="_blank" rel="noopener">{{ d.title }}</a>{% if d.note %}<span class="meta">{{ d.note }}</span>{% endif %}</div>{% if d.kind %}<span class="stamp">{{ d.kind }}</span>{% endif %}</li>
+    <li class="done"><div><a href="{{ d.url }}" target="_blank" rel="noopener">{{ d.title }}</a>{% if d.note %}<span class="meta">{{ d.note }}</span>{% endif %}</div>{% if d.kind %}<span class="tag tag-mint">{{ d.kind }}</span>{% endif %}</li>
     {%- endfor %}
   </ul>
 </section>
@@ -23,11 +23,12 @@ pageTitle: Outputs
 
 <section class="wrap section-tight">
   <h2 class="h-sub">Public deliverables</h2>
-  <ul class="checklist" data-anim>
+  <ul class="list">
     {%- for d in o.items %}
-    <li{% if d.url %} class="done"{% endif %}>{{ m.box(d.url) }}
-      <div>{% if d.url %}<a href="{{ d.url }}" target="_blank" rel="noopener"><b>{{ d.id }}</b> {{ d.title }}</a>{% else %}<b>{{ d.id }}</b> {{ d.title }}{% endif %}<span class="meta">{{ d.wp }} · Lead: {{ d.lead }}</span></div>
-      <span class="stamp">{% if d.url %}Published{% else %}{{ d.month | projectMonth }}{% endif %}</span>
+    <li{% if d.url %} class="done"{% endif %}>
+      <b class="num">{{ d.id }}</b>
+      <div>{% if d.url %}<a href="{{ d.url }}" target="_blank" rel="noopener">{{ d.title }}</a>{% else %}{{ d.title }}{% endif %}<span class="meta">{{ d.wp }} ▲ Lead: {{ d.lead }}</span></div>
+      {% if d.url %}<span class="tag tag-mint">Published</span>{% else %}<span class="tag">{{ d.month | projectMonth }}</span>{% endif %}
     </li>
     {%- endfor %}
   </ul>

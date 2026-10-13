@@ -13,23 +13,18 @@ export default function (cfg) {
   // Montserrat stays only because the wordmark inside the TRIAD logo is set in it.
   const fonts = {
     "@fontsource-variable/montserrat/files/montserrat-latin-wght-normal.woff2": "montserrat-latin.woff2",
-    "@fontsource/instrument-serif/files/instrument-serif-latin-400-normal.woff2": "serif.woff2",
-    "@fontsource/instrument-serif/files/instrument-serif-latin-400-italic.woff2": "serif-italic.woff2",
-    "@fontsource/instrument-serif/files/instrument-serif-latin-ext-400-normal.woff2": "serif-ext.woff2",
-    "@fontsource-variable/instrument-sans/files/instrument-sans-latin-wght-normal.woff2": "sans.woff2",
-    "@fontsource-variable/instrument-sans/files/instrument-sans-latin-ext-wght-normal.woff2": "sans-ext.woff2",
-    "@fontsource-variable/instrument-sans/files/instrument-sans-latin-wght-italic.woff2": "sans-italic.woff2",
+    "@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-standard-normal.woff2": "display.woff2",
+    "@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-ext-standard-normal.woff2": "display-ext.woff2",
     "@fontsource/dm-mono/files/dm-mono-latin-400-normal.woff2": "mono.woff2",
     "@fontsource/dm-mono/files/dm-mono-latin-500-normal.woff2": "mono-500.woff2",
-    "@fontsource-variable/caveat/files/caveat-latin-wght-normal.woff2": "hand.woff2",
   };
   for (const [from, to] of Object.entries(fonts)) cfg.addPassthroughCopy({ [`node_modules/${from}`]: `fonts/${to}` });
   cfg.addWatchTarget("./content/");
 
-  // Wraps one word of a headline so it can be circled in pen.
-  cfg.addFilter("circle", (s, word) => {
+  // Wraps one phrase of a headline so it can sit on a block of colour.
+  cfg.addFilter("mark", (s, phrase) => {
     const safe = String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;");
-    return word ? safe.replace(new RegExp(`\\b${word}\\b`), `<span class="circled">${word}<svg viewBox="0 0 120 60" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M14 34 C8 14 40 4 68 5 C98 6 116 18 112 34 C108 52 70 57 44 55 C20 53 6 44 12 26 C16 14 34 8 52 7"/></svg></span>`) : safe;
+    return phrase && safe.includes(phrase) ? safe.replace(phrase, `<mark>${phrase}</mark>`) : safe;
   });
   cfg.addFilter("stamp", (d) =>
     d ? new Intl.DateTimeFormat("en-GB", { day: "2-digit", month: "short", year: "numeric", timeZone: "UTC" }).format(new Date(d)).toUpperCase() : ""

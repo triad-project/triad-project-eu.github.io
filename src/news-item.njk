@@ -12,10 +12,10 @@ eleventyComputed:
   ogImage: "{{ item.image }}"
 ---
 <article class="post wrap">
-  <p><a class="link back" href="/news/">News</a></p>
-  <p class="stamp">{{ item.date | stamp }}{% if types[item.type] %} · {{ types[item.type] }}{% endif %}{% if item.partner %} · {{ item.partner }}{% endif %}</p>
+  <p><a class="back" href="/news/">← News</a></p>
+  <p class="label">{{ item.date | stamp }}{% if types[item.type] %} ▲ {{ types[item.type] }}{% endif %}{% if item.partner %} ▲ {{ item.partner }}{% endif %}</p>
   <h1>{{ item.title }}</h1>
-  {% if item.draft %}<p class="hand draft">Draft, not published</p>{% endif %}
+  {% if item.draft %}<p class="tag tag-draft">Draft, not published</p>{% endif %}
   {% if item.summary %}<p class="lead">{{ item.summary }}</p>{% endif %}
   {%- if item.image %}
   <figure>

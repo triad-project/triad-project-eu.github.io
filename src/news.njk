@@ -6,11 +6,11 @@ pageTitle: News
 ---
 {%- import "macros.njk" as m -%}
 <section class="page-head wrap">
-  {{ m.heading("News", "Notes from the project", "Project news, events and results from the eleven TRIAD partners.", 1) }}
+  {{ m.heading("News", "From the project", "Project news, events and results from the eleven TRIAD partners.", 1) }}
 </section>
 <section class="wrap">
   {%- if db.news.length %}
-  <div class="notes">
+  <div class="cards">
     {%- for item in db.news %}
     {{ m.newsCard(item, types) }}
     {%- endfor %}
