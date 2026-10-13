@@ -113,6 +113,26 @@ content:
         fields:
           - { name: value, label: Number, type: string }
           - { name: label, label: Label, type: string }
+      - { name: framework_title, label: Framework heading, type: string }
+      - { name: framework_text, label: Framework text, type: text }
+      - name: areas
+        label: Framework areas (the three strands)
+        type: object
+        list: true
+        fields:
+          - { name: short, label: Word in the diagram, type: string }
+          - { name: title, label: Title, type: string }
+          - { name: detail, label: Detail, type: string }
+      - name: center
+        label: Wellbeing (not shown at present)
+        type: object
+        fields:
+          - { name: short, label: Word in the diagram, type: string }
+          - { name: title, label: Title, type: string }
+          - { name: detail, label: Detail, type: string }
+      - { name: classroom_eyebrow, label: Classroom section - line above the heading, type: string }
+      - { name: classroom_title, label: Classroom section - heading, type: string }
+      - { name: classroom_text, label: Classroom section - text, type: text }
       - { name: newsletter_title, label: Newsletter heading, type: string }
       - { name: newsletter_text, label: Newsletter text, type: text }
       - { name: newsletter_consent, label: Newsletter consent wording, type: text }
@@ -139,6 +159,15 @@ content:
       - { name: approach, label: Approach text, type: text }
       - { name: results_title, label: Results heading, type: string }
       - { name: results, label: Results text, type: text }
+      - { name: path_title, label: Path heading, type: string }
+      - name: path
+        label: Path steps
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: months, label: Months, type: string }
+          - { name: text, label: Text, type: text }
       - { name: workplan_title, label: Work plan heading, type: string }
       - { name: workplan_note, label: Note under the work plan, type: string }
 

@@ -16,17 +16,44 @@ key: home
         <a class="btn btn-ghost" href="/news/">News</a>
       </p>
     </div>
-    <div class="card figures">
-      <div class="band band-card" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-      <div class="figures-body">
-        <p class="label">The project in numbers</p>
-        <dl>
-          {%- for f in h.figures %}
-          <div><dd>{{ f.value }}</dd><dt>{{ f.label }}</dt></div>
-          {%- endfor %}
-        </dl>
+    <div class="triad" id="triad">
+      <svg viewBox="0 0 520 430" role="group" aria-label="{{ h.framework_title }}">
+        {%- set shapes = ["M200 40 L350 300 L50 300 Z", "M320 120 L470 380 L170 380 Z", "M260 195 L345 340 L175 340 Z"] %}
+        {%- for x in h.areas %}
+        <path pathLength="1" class="s{{ loop.index }}" data-k="{{ loop.index0 }}" d="{{ shapes[loop.index0] }}" tabindex="0" role="button" aria-label="{{ x.title }}" />
+        {%- endfor %}
+      </svg>
+      <div class="triad-say" aria-live="polite">
+        <div class="on"><h2>{{ h.framework_title }}</h2><p>{{ h.framework_text }}</p></div>
+        {%- for x in h.areas %}
+        <div class="k{{ loop.index }}"><h2>{{ x.title }}</h2><p>{{ x.detail }}</p></div>
+        {%- endfor %}
       </div>
+      <p class="triad-keys">
+        {%- for x in h.areas %}
+        <button type="button" class="k{{ loop.index }}" data-k="{{ loop.index0 }}"><i></i>{{ x.short }}</button>
+        {%- endfor %}
+      </p>
     </div>
+  </div>
+  <div class="wrap">
+    <dl class="stats" data-anim>
+      {%- for f in h.figures %}
+      <div><dd data-count>{{ f.value }}</dd><dt>{{ f.label }}</dt></div>
+      {%- endfor %}
+    </dl>
+  </div>
+</section>
+
+<section class="section-blue classroom">
+  <div class="wrap classroom-grid">
+    <div>
+      <p class="eyebrow">{{ h.classroom_eyebrow }}</p>
+      <h2>{{ h.classroom_title }}</h2>
+      <p>{{ h.classroom_text }}</p>
+      <p class="actions"><a class="btn" href="/about/">How the project works →</a></p>
+    </div>
+    {% include "classroom.svg" %}
   </div>
 </section>
 

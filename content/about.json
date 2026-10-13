@@ -4,15 +4,55 @@
   "context": "Across Europe, adolescents are growing up in a digital environment shaped by generative AI, smartphones and social media. These technologies transform how they learn, communicate and prepare for future careers. The tools enable creativity, personalisation and collaboration, but evidence on their impact on learning and wellbeing is fragmented and often lags behind practice.\n\nTRIAD addresses this gap by co-creating and testing an integrated framework that balances foundational competences (literacy, numeracy, science), transversal competences (critical thinking, collaboration, metacognition) and AI and digital literacies, while embedding safeguards for cognitive, emotional and social wellbeing.\n\nThe project focuses on learners aged 12 to 18 in secondary schools and vocational education and training (VET), where competences must be consolidated and inequality risks peak.",
   "challenges_title": "Four challenges the project tackles",
   "challenges": [
-    { "title": "Skill degradation and shallow learning", "text": "AI-driven skill degradation and shallow learning, with the risk of over-reliance and reduced originality." },
-    { "title": "Fragmented competence frameworks", "text": "Competence frameworks that are fragmented and lack operationalised pathways." },
-    { "title": "Uneven readiness and equity gaps", "text": "Uneven readiness and equity gaps that amplify socio-economic and digital divides." },
-    { "title": "Ambivalent evidence on wellbeing", "text": "Ambivalent evidence on adolescents' wellbeing in digitally enriched education." }
+    {
+      "title": "Skill degradation and shallow learning",
+      "text": "AI-driven skill degradation and shallow learning, with the risk of over-reliance and reduced originality."
+    },
+    {
+      "title": "Fragmented competence frameworks",
+      "text": "Competence frameworks that are fragmented and lack operationalised pathways."
+    },
+    {
+      "title": "Uneven readiness and equity gaps",
+      "text": "Uneven readiness and equity gaps that amplify socio-economic and digital divides."
+    },
+    {
+      "title": "Ambivalent evidence on wellbeing",
+      "text": "Ambivalent evidence on adolescents' wellbeing in digitally enriched education."
+    }
   ],
   "approach_title": "How the project works",
   "approach": "Through large-scale classroom pilots across Europe, combined with neuroscientific methods (EEG and fNIRS), TRIAD will identify when AI genuinely enhances learning rather than replacing it. Classroom scenarios will be validated across diverse contexts and enriched by input from SMEs and labour market actors.",
   "results_title": "What the project will deliver",
   "results": "The outputs are classroom-ready designs, developmental pathways for students and teachers, and actionable policy recommendations. They will enable schools to adopt AI responsibly, reduce inequalities and strengthen Europe's human capital and resilience, in line with the European Education Area 2030 and the Digital Education Action Plan.",
   "workplan_title": "Twelve work packages, thirty-six months",
-  "workplan_note": "Month 1 is September 2026. Work package titles, leads and months are those of the Grant Agreement."
+  "workplan_note": "Month 1 is September 2026. Work package titles, leads and months are those of the Grant Agreement.",
+  "path_title": "From evidence to classrooms",
+  "path": [
+    {
+      "title": "Review and framework",
+      "months": "M1-M12",
+      "text": "A review of pedagogical models, competence frameworks and AI-supported tools."
+    },
+    {
+      "title": "Co-creation",
+      "months": "M5-M15",
+      "text": "Pedagogical patterns and classroom scenarios designed with teachers, school leaders, students and VET trainers."
+    },
+    {
+      "title": "Pre-test pilots",
+      "months": "M7-M17",
+      "text": "Two to three scenarios per country in Croatia, Germany and Greece, with about 300 to 360 learners."
+    },
+    {
+      "title": "EU-wide pilots",
+      "months": "M12-M24",
+      "text": "Pre-test and post-test with control groups in Lithuania, Germany, Croatia, Finland, Italy and Greece, with about 1,000 learners."
+    },
+    {
+      "title": "Analysis and adoption",
+      "months": "M20-M36",
+      "text": "Analysis across countries, then toolkits, training modules and policy recommendations."
+    }
+  ]
 }

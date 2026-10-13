@@ -3,12 +3,48 @@
   "headline": "Foundational skills and AI skills are not a trade-off.",
   "standfirst": "TRIAD studies how secondary schools can build AI competences without giving up foundational competences, inclusion or wellbeing. Eleven partners across seven countries are running the work, coordinated by RPTU Kaiserslautern.",
   "figures": [
-    { "value": "11", "label": "Partners" },
-    { "value": "7", "label": "Countries" },
-    { "value": "36", "label": "Months" }
+    {
+      "value": "11",
+      "label": "Partners"
+    },
+    {
+      "value": "7",
+      "label": "Countries"
+    },
+    {
+      "value": "36",
+      "label": "Months"
+    }
   ],
   "newsletter_title": "Keep in touch",
   "newsletter_text": "We send one email per project milestone, no more than four a year. Ask us to add you to the list.",
   "newsletter_consent": "I agree that TRIAD may store my email address to send the project newsletter. You can unsubscribe at any time.",
-  "contact_text": "Press, school and partner enquiries:"
+  "contact_text": "Press, school and partner enquiries:",
+  "framework_title": "Three areas of competence, one framework",
+  "framework_text": "TRIAD co-creates and tests an integrated framework that balances three areas of competence, with safeguards for learner wellbeing built in.",
+  "areas": [
+    {
+      "short": "Foundational",
+      "title": "Foundational competences",
+      "detail": "Literacy, numeracy, science"
+    },
+    {
+      "short": "Transversal",
+      "title": "Transversal competences",
+      "detail": "Critical thinking, collaboration, metacognition"
+    },
+    {
+      "short": "AI and digital",
+      "title": "AI and digital literacies",
+      "detail": "Using AI and digital tools with understanding"
+    }
+  ],
+  "center": {
+    "short": "Wellbeing",
+    "title": "Wellbeing safeguards",
+    "detail": "Cognitive, emotional and social wellbeing"
+  },
+  "classroom_eyebrow": "For secondary schools and VET",
+  "classroom_title": "In classrooms, with learners aged 12 to 18",
+  "classroom_text": "The project focuses on learners aged 12 to 18 in secondary schools and vocational education and training, where competences must be consolidated and inequality risks peak. Classroom scenarios are designed with teachers, school leaders and students, then tested in pilots across Europe."
 }

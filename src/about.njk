@@ -56,9 +56,20 @@ pageTitle: About the project
   </div>
 </section>
 
+<section class="section section-blue">
+  <div class="wrap">
+    {{ m.heading(a.path_title, "The path") }}
+    <ol class="path" data-anim>
+      {%- for p in a.path %}
+      <li style="--i: {{ loop.index0 }}"><span class="path-n">{{ loop.index }}</span><p class="label">{{ p.months }}</p><h3>{{ p.title }}</h3><p>{{ p.text }}</p></li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
 <section class="section wrap">
   {{ m.heading(a.workplan_title, "Work plan") }}
-  <div class="timeline">
+  <div class="timeline" data-anim>
     <div class="tl-row tl-head" aria-hidden="true">
       <span></span>
       <div class="tl-ticks">
@@ -73,7 +84,7 @@ pageTitle: About the project
         <strong>{{ wp.id }}</strong> {{ wp.title }}
         <span class="meta">Lead: {{ wp.lead }} · M{{ wp.start }}-M{{ wp.end }}</span>
       </div>
-      <div class="tl-track" aria-hidden="true"><span class="tl-bar c{{ loop.index0 % 4 }}" style="left: {{ (wp.start - 1) | pct }}%; width: {{ (wp.end - wp.start + 1) | pct }}%"></span></div>
+      <div class="tl-track" aria-hidden="true"><span class="tl-bar c{{ loop.index0 % 4 }}" style="--i: {{ loop.index0 }}; left: {{ (wp.start - 1) | pct }}%; width: {{ (wp.end - wp.start + 1) | pct }}%"></span></div>
     </div>
     {%- endfor %}
   </div>
