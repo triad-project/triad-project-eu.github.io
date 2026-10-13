@@ -45,7 +45,7 @@ Rules we keep on this site:
 - The editor is configured in `.pages.yml`.
 - Every change on `main` is built and published by GitHub Actions (`.github/workflows/deploy.yml`) to GitHub Pages.
 - News items marked as draft show in the local preview only.
-- The newsletter form sends sign-ups through Web3Forms to the project mailbox. The key is in `content/site.json`.
+- The newsletter form sends sign-ups straight into the contact list of Hostinger Reach, where the newsletter is sent from. The id of the Reach form is in `content/site.json`.
 - Visits are counted with GoatCounter, without cookies, once its site code is filled in under "Contact and social media links". While the field is empty nothing is counted. The privacy notice shows the matching text by itself.
 - The work plan (`content/workplan.json`) follows the Grant Agreement and is changed only after an amendment.
 

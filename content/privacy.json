@@ -5,29 +5,29 @@
   "sections": [
     {
       "title": "Who runs this website",
-      "text": "The TRIAD website and newsletter are run by VILNIAUS GEDIMINO TECHNIKOS UNIVERSITETAS (VILNIUS TECH), the partner that leads the project's communication work. For any question about your data, write to info@triad-project.eu."
+      "text": "The TRIAD website and newsletter are run by VILNIAUS GEDIMINO TECHNIKOS UNIVERSITETAS (VILNIUS TECH), the partner that leads the project's communication work. VILNIUS TECH is the data controller: legal entity code 111950243, Saulėtekio al. 11, LT-10223 Vilnius, Lithuania.\n\nFor any question about your data, write to info@triad-project.eu."
     },
     {
       "title": "Newsletter sign-up",
-      "text": "If you sign up for the newsletter, we store your email address and the fact that you agreed to receive it. We use the address only to send you news about TRIAD. The sign-up form is sent to the project mailbox through a form service, Web3Forms.\n\nWe rely on your consent. You can withdraw it at any time by writing to info@triad-project.eu, and we will remove your address."
+      "text": "If you sign up for the newsletter, we store your email address and the fact that you agreed to receive it. We use the address only to send you news about TRIAD.\n\nWe rely on your consent. You can withdraw it at any time with the unsubscribe link in each newsletter or by writing to info@triad-project.eu, and we will remove your address. We keep your address until you unsubscribe, or until the newsletter stops after the end of the project.\n\nYour address is stored in Hostinger Reach, the newsletter service of Hostinger, which we also use to send the newsletter. Like most newsletter services, it records whether a newsletter was opened and which links in it were clicked."
     },
     {
       "title": "Visiting the website",
-      "text": "The website sets no cookies and does not track visitors. It shows no advertising and loads no content from other services: the typeface and all pictures are served from the website itself.\n\nAs with any website, the hosting provider processes technical data, such as your IP address, for the short time needed to deliver the pages and keep the service secure.",
+      "text": "The website sets no cookies and does not track visitors. It shows no advertising and loads no content from other services: the typeface and all pictures are served from the website itself.\n\nThe pages are delivered by GitHub Pages, the hosting service of GitHub, a company in the United States. As with any website, the hosting service processes technical data, such as your IP address, to deliver the pages and keep the service secure.",
       "when": "nocounter"
     },
     {
       "when": "counter",
       "title": "Visiting the website",
-      "text": "The website sets no cookies and shows no advertising. The typeface and all pictures are served from the website itself.\n\nWe count visits, because the project reports to the European Commission how many people it reaches. For this we use GoatCounter, a counting service hosted in the European Union (Finland and Germany). It records which page was opened, the site the visitor came from, the type of browser and system, the screen width and the country. It stores no IP address, sets no cookie and keeps nothing in your browser, so it cannot follow you from one visit to the next or across other websites. We also count how often a file is opened from the Outputs page.\n\nAs with any website, the hosting provider processes technical data, such as your IP address, for the short time needed to deliver the pages and keep the service secure."
+      "text": "The website sets no cookies and shows no advertising. The typeface and all pictures are served from the website itself.\n\nWe count visits, because the project reports to the European Commission how many people it reaches. For this we use GoatCounter, a counting service hosted in the European Union (Finland and Germany). It records which page was opened, the site the visitor came from, the type of browser and system, the screen width and the country. It stores no IP address, sets no cookie and keeps nothing in your browser, so it cannot follow you from one visit to the next or across other websites. We also count how often a file is opened from the Outputs page.\n\nThe pages are delivered by GitHub Pages, the hosting service of GitHub, a company in the United States. As with any website, the hosting service processes technical data, such as your IP address, to deliver the pages and keep the service secure."
     },
     {
       "title": "Email",
-      "text": "If you write to us, we use your address and your message to answer you."
+      "text": "If you write to us, we use your address and your message to answer you. The project mailbox is provided by Hostinger."
     },
     {
       "title": "Your rights",
-      "text": "Under the General Data Protection Regulation you can ask what data we hold about you, have it corrected or erased, and object to its use. Write to info@triad-project.eu. You can also lodge a complaint with the data protection authority of your country."
+      "text": "Under the General Data Protection Regulation you can ask what data we hold about you, have it corrected or erased, ask us to restrict its use, object to its use and receive a copy of it. Write to info@triad-project.eu. You can also lodge a complaint with the data protection authority of your country. In Lithuania this is the State Data Protection Inspectorate (vdai.lrv.lt)."
     }
   ]
 }

@@ -16,13 +16,10 @@ key: home
         <a class="btn" href="/news/">Read the news</a>
       </p>
     </div>
-    <form class="signup signup-card" id="newsletter" action="https://api.web3forms.com/submit" method="post" data-email="{{ db.site.email }}">
+    <form class="signup signup-card" id="newsletter" action="https://reach.hostinger.com/api/v1/forms/{{ db.site.reach_form_id }}/submit" method="post" data-email="{{ db.site.email }}">
       <p class="label">Newsletter</p>
       <h2>{{ h.newsletter_title }}</h2>
       <p class="signup-text">{{ h.newsletter_text }}</p>
-      <input type="hidden" name="access_key" value="{{ db.site.web3forms_key }}" />
-      <input type="hidden" name="subject" value="TRIAD newsletter sign-up" />
-      <input type="hidden" name="from_name" value="TRIAD website" />
       <input type="checkbox" name="botcheck" tabindex="-1" aria-hidden="true" class="hp" />
       <label for="signup-email" class="label">Email address</label>
       <input id="signup-email" type="email" name="email" aria-label="Email address" placeholder="you@school.eu" autocomplete="email" required />
@@ -50,7 +47,8 @@ key: home
 {%- endif %}
 
 <script>
-  // Newsletter sign-up: sent in the background so the visitor stays on the page.
+  // Newsletter sign-up: the address goes straight into the newsletter list in Hostinger Reach,
+  // in the background, so the visitor stays on the page.
   (function () {
     var form = document.getElementById("newsletter");
     if (!form) return;
@@ -58,9 +56,11 @@ key: home
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var btn = form.querySelector("button");
+      // The hidden box is only ever ticked by robots: nothing is sent for them.
+      if (form.botcheck.checked) return;
       btn.disabled = true;
-      fetch(form.action, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } })
-        .then(function (r) { if (!r.ok) throw new Error(); return r.json(); })
+      fetch(form.action, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email: form.email.value.trim() }) })
+        .then(function (r) { if (!r.ok) throw new Error(); })
         .then(function () { form.reset(); msg.textContent = "Thank you. You are on the list."; })
         .catch(function () { msg.innerHTML = 'That did not go through. Please write to <a href="mailto:' + form.dataset.email + '">' + form.dataset.email + "</a> instead."; })
         .then(function () { msg.hidden = false; btn.disabled = false; });
