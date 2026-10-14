@@ -432,7 +432,7 @@ a:hover { color: var(--ink); }
   .list .tag { grid-column: 2; justify-self: start; }
   .logos { grid-template-columns: 1fr 1fr; }
   .funding { flex-direction: column; gap: 16px; }
-  .funding p { min-height: 0; }
+  .funding p { min-height: 0; flex: none; }
   .page-head, .post-head { padding-top: 44px; padding-bottom: 120px; }
   .site-footer { margin-top: 84px; }
 }
